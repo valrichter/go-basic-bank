@@ -18,3 +18,4 @@ WHERE datname = 'bank';```
 2. Configucion Postgres en Docker y creacion de la DB
 3. Configucion golang-migrate para hacer migraciones de la DB
 4. Configucion de sqlc y generacion de un CRUD basico para cada tabla con sqlc (SQL->[sqlc]->Go)
+5. Generacion de datos ficticios y creacion de test unitarios para los CRUD de las tablas account, entrie, transfer 
