@@ -38,23 +38,59 @@ func (store *Store) execTx(ctx context.Context, fn func(*Queries) error) error {
 	return tx.Commit()
 }
 
+// Contains the imput parameters for creating a new transfer
 type TransferTxParams struct {
 	FromAccountID int64 `json:"from_account_id"`
 	ToAccountID int64 `json:"to_account_id"`
-	Amount int64 `json:"amount"`
+	Amount float32 `json:"amount"`
 }
 
+// Contains the result of a transfer transaction
 type TransferTxResult struct {
 	Transfer Transfer `json:"transfer"`
 	FromAccount Account `json:"from_account"`
 	ToAccount Account `json:"to_account"`
-	FromEntrie Entry `json:"from_entry"`
-	ToEntrie Entry `json:"to_entry"`
+	FromEntry Entry `json:"from_entry"`
+	ToEntry Entry `json:"to_entry"`
 }
 
 // Money transfer from one account to another
 // It create a transfer record, add account entries, and update account balances
 // within a single database transaction.
-// func (store *Store) TransferTx(ctx context.Context, arg TransferTxParams) (TransferTxResult, error) {
-//  re
-// }
+func (store *Store) TransferTx(ctx context.Context, arg TransferTxParams) (TransferTxResult, error) {
+	var result TransferTxResult
+
+	err := store.execTx(ctx, func(q *Queries) error {
+		var err error
+
+		// 1. Make a transfer
+		result.Transfer, err = q.CreateTransfer(ctx, CreateTransferParams {
+			FromAccountID: arg.FromAccountID,
+			ToAccountID: arg.ToAccountID,
+			Amount: arg.Amount,
+		})
+		if err != nil {
+			return err
+		}
+		
+
+		// 2. Money is moving out of the account 'FromAccountID'
+		result.FromEntry, err = q.CreateEntry(ctx, CreateEntryParams {
+			AccountID: arg.FromAccountID,
+			Amount: -arg.Amount,
+		})
+		if err != nil {
+			return err
+		}
+
+		// 3. Money is moving into the account 'ToAccountID'
+		result.ToEntry, err = q.CreateEntry(ctx, CreateEntryParams {
+			AccountID: arg.ToAccountID,
+			Amount: arg.Amount,
+		})
+
+		// TODO: 4. Update the accounts
+		return nil
+ 	})
+	return result, err
+}
