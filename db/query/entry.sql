@@ -1,5 +1,5 @@
 -- name: CreateEntry :one
-INSERT INTO entrie (
+INSERT INTO entry (
   account_id,
   amount
 ) VALUES (
@@ -7,11 +7,11 @@ INSERT INTO entrie (
 ) RETURNING *;
 
 -- name: GetEntry :one
-SELECT * FROM entrie
+SELECT * FROM entry
 WHERE id = $1 LIMIT 1;
 
--- name: ListEntrie :many
-SELECT * FROM entrie
+-- name: ListEntry :many
+SELECT * FROM entry
 WHERE account_id = $1
 ORDER BY id
 LIMIT $2
