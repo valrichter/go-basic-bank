@@ -21,6 +21,12 @@ CREATE TABLE "transfer" (
   "created_at" timestamptz NOT NULL DEFAULT (now())
 );
 
+ALTER TABLE "entry" ADD FOREIGN KEY ("account_id") REFERENCES "account" ("id");
+
+ALTER TABLE "transfer" ADD FOREIGN KEY ("from_account_id") REFERENCES "account" ("id");
+
+ALTER TABLE "transfer" ADD FOREIGN KEY ("to_account_id") REFERENCES "account" ("id");
+
 CREATE INDEX ON "account" ("owner");
 
 CREATE INDEX ON "entry" ("account_id");
@@ -34,9 +40,3 @@ CREATE INDEX ON "transfer" ("from_account_id", "to_account_id");
 COMMENT ON COLUMN "entry"."amount" IS 'can be negative or positive';
 
 COMMENT ON COLUMN "transfer"."amount" IS 'must be positive';
-
-ALTER TABLE "entry" ADD FOREIGN KEY ("account_id") REFERENCES "account" ("id");
-
-ALTER TABLE "transfer" ADD FOREIGN KEY ("from_account_id") REFERENCES "account" ("id");
-
-ALTER TABLE "transfer" ADD FOREIGN KEY ("to_account_id") REFERENCES "account" ("id");

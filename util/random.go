@@ -1,6 +1,7 @@
 package util
 
 import (
+	"math"
 	"math/rand"
 
 	"github.com/brianvoe/gofakeit/v6"
@@ -14,8 +15,9 @@ func RandomOwner() string {
 
 // Generates a random amount of money
 func RandomMoney() float32 {
-	money := gofakeit.Price(0, 1000)
-	return float32(money)
+	rNum := gofakeit.Price(0, 1000)
+	money := float32(math.Floor(float64(rNum*100)) / 100)
+	return money
 }
 
 // Generates a random currency code
