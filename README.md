@@ -19,4 +19,4 @@ WHERE datname = 'bank';```
 3. Configucion golang-migrate para hacer migraciones de la DB
 4. Configucion de sqlc y generacion de un CRUD basico para cada tabla con sqlc (SQL->[sqlc]->Go)
 5. Generacion de datos ficticios y creacion de test unitarios para los CRUD de las tablas account, entrie, transfer
-6. Creacion de store_procedure y su respectivo test
+6. Creacion de store_procedure para la transferencia de dinero entre usuarios y su respectivo test
