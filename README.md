@@ -10,9 +10,9 @@ FROM pg_stat_activity
 WHERE pg_stat_activity.datname = 'bank'
 AND pid <> pg_backend_pid(); ```
 
-```SELECT usename, application_name, client_addr, backend_start, state
+``` SELECT usename, application_name, client_addr, backend_start, state
 FROM pg_stat_activity
-WHERE datname = 'bank';```
+WHERE datname = 'bank'; ```
 
 1. Creacion del DB schema
 2. Configucion Postgres en Docker y creacion de la DB
@@ -20,4 +20,5 @@ WHERE datname = 'bank';```
 4. Configucion de sqlc y generacion de un CRUD basico para cada tabla con sqlc (SQL->[sqlc]->Go)
 5. Generacion de datos ficticios y creacion de test unitarios para los CRUD de las tablas account, entrie, transfer
 6. Creacion de store_procedure para la transferencia de dinero entre usuarios y su respectivo test
-7. Add creacion de test para tracciones concurrentes para evitar sobreescritura y deadlocks 
+7. Creacion de test con go routines para tracciones concurrentes y evitar transaction lock junto con el manejo de deadlocks
+8. Creacion de test de deadlocks y modificacion del codigo para evitar deadlocks
