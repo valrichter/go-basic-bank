@@ -13,8 +13,9 @@
 **1.** Esquema de la DB y realacion entre tablas:
    - Crear una Account (Owner, Balance, Currency)
    - Registrar todos los cambios de balance en la cuenta (Entry)
-   - Hacer transferencias de dinero entre 2 Accounts (Transfer)!
-   <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/d001f3d0-363e-49ff-8675-566f5f9baafa" width="1000" />
+   - Hacer transferencias de dinero entre 2 Accounts (Transfer)
+
+   <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/f0087f1e-ab3b-4532-a7bc-1a578c7c1e2c" width="1000" />
 
 **2.** Configuracion de PostgreSQL en Docker y creacion de la DB mediante un archivo *.sql*
      
