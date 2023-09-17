@@ -22,4 +22,4 @@ WHERE datname = 'bank'; ```
 6. Creacion de store_procedure para la transferencia de dinero entre usuarios y su respectivo test
 7. Creacion de test con go routines para tracciones concurrentes y evitar transaction lock junto con el manejo de deadlocks
 8. Creacion de test de deadlocks y modificacion del codigo para evitar deadlocks
-9. Add CI
+9. Creacion de Continouous Integration (CI) con GitHub Actions para automatizacion de test 
