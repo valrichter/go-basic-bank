@@ -16,7 +16,7 @@ func TestTransferTx(t *testing.T) {
 	// Create two random accounts
 	account1 := createRandomAccount(t)
 	account2 := createRandomAccount(t)
-	fmt.Println(">> Before transfer:", "Acc1:", account1.Balance, "Acc2:", account2.Balance)
+	fmt.Println(">> Before transfer:", "Acc1:", account1.Balance, account1.ID, "Acc2:", account2.Balance, account2.ID)
 
 	// Run n concurrent transfer transactions
 	n := 5
@@ -91,7 +91,7 @@ func TestTransferTx(t *testing.T) {
 		require.Equal(t, account2.ID, toAccount.ID)
 
 		// check accounts balance
-		fmt.Println(">> Tx:", "Acc1:", fromAccount.Balance, "Acc2:", toAccount.Balance)
+		fmt.Println(">> Tx:", "Acc1:", fromAccount.Balance, fromAccount.ID, "Acc2:", toAccount.Balance, toAccount.ID)
 		diff1 := account1.Balance - fromAccount.Balance
 		diff2 := toAccount.Balance - account2.Balance
 
@@ -114,7 +114,7 @@ func TestTransferTx(t *testing.T) {
 	updatedAccount2, err := testQueries.GetAccount(context.Background(), account2.ID)
 	require.NoError(t, err)
 
-	fmt.Println(">> After transfer: ", "Acc1:", updatedAccount1.Balance, "Acc2:", updatedAccount2.Balance)
+	fmt.Println(">> After transfer: ", "Acc1:", updatedAccount1.Balance, updatedAccount1.ID, "Acc2:", updatedAccount2.Balance, updatedAccount2.ID)
 
 	require.Equal(t, account1.Balance-float32(n)*amount, updatedAccount1.Balance)
 	require.Equal(t, account2.Balance+float32(n)*amount, updatedAccount2.Balance)
@@ -128,7 +128,7 @@ func TestTransferTxDeadlock(t *testing.T) {
 	// Create two random accounts
 	account1 := createRandomAccount(t)
 	account2 := createRandomAccount(t)
-	fmt.Println(">> Before transfer:", "Acc1:", account1.Balance, "Acc2:", account2.Balance)
+	fmt.Println(">> Before transfer:", "Acc1:", account1.Balance, account1.ID, "Acc2:", account2.Balance, account2.ID)
 
 	// Run n concurrent transfer transactions
 	n := 10
@@ -169,7 +169,7 @@ func TestTransferTxDeadlock(t *testing.T) {
 	updatedAccount2, err := testQueries.GetAccount(context.Background(), account2.ID)
 	require.NoError(t, err)
 
-	fmt.Println(">> After transfer: ", "Acc1:", updatedAccount1.Balance, "Acc2:", updatedAccount2.Balance)
+	fmt.Println(">> After transfer: ", "Acc1:", updatedAccount1.Balance, updatedAccount1.ID, "Acc2:", updatedAccount2.Balance, updatedAccount1.ID)
 
 	require.Equal(t, account1.Balance, updatedAccount1.Balance)
 	require.Equal(t, account2.Balance, updatedAccount2.Balance)
