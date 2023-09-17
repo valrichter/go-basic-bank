@@ -1,12 +1,13 @@
-# Proyecto de Backend extenso en Go <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" />
+# Proyecto extenso de Backend con Go <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" />
 
-## 🔨 Herramietas usadas:
-- GNU Make 4.3
-- go version go1.21.0 linux/amd64
-- golang-migrate 4.16.2
-- Docker version 24.0.6
-- Docker image postgres:15.4
-- sqlc v1.20.0
+## 🔨 Tecnologias usadas:
+- **Go**: go1.21.0 linux/amd64
+- **PostgreSQL**: docker image postgres:15.4
+- **Docker**: v24.0.6
+- **CI**: GitHub Actions
+- **sqlc**: v1.21.0
+- **Migrate**: golang-migrate v4.16.2
+- **Make**: GNU Make v4.3
 
 ## ⚡ Acciones realizadas durante el proyecto:
 
@@ -40,7 +41,7 @@ s de la DB de una version a otra:
    
 **8.** Modificacion del codigo para evitar situaciones deadlock y Unit Test para transactions deadlocks.
 
-**9.** Insolation Levels en PostgreSQL:
+**9.** Estudio de los distintos Insolation Levels en PostgreSQL:
 | Read Phenomena / Isonlation Levels ANSI | Read Uncommited | Read Commited | Repeatable Read | Serializable |
 | :-------------------------------------: | :-------------: | :-----------: | :-------------: | :----------: |
 | Dirty Read                              | NO              | NO            | NO              | NO           |
