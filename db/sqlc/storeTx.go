@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"math"
 )
 
 // Store provides all functions to execute db queries & transactions
@@ -115,7 +116,7 @@ func addMoney(
 ) (account1 Account, account2 Account, err error) {
 	account1, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{
 		ID:     accountID1,
-		Amount: amount1,
+		Amount: float32(math.Floor(float64(amount1*100)) / 100),
 	})
 	if err != nil {
 		return
@@ -123,7 +124,7 @@ func addMoney(
 
 	account2, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{
 		ID:     accountID2,
-		Amount: amount2,
+		Amount: float32(math.Floor(float64(amount2*100)) / 100),
 	})
 	if err != nil {
 		return
