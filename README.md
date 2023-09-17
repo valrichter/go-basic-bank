@@ -32,7 +32,8 @@ s de la DB de una version a otra:
 **5.** Generacion de datos falsos y creacion de Unit Tests para los CRUD de las tablas Account, Entry & Transfer:
    - Utlizacion del archivo ```random.go```
 
-**6.** Creacion de una transaccion ```StoreTx.go``` con las propiedades ACID para la transferencia de dinero entre 2 Accounts y su respectivo Unit Test:  
+**6.** Creacion de una transaccion ```StoreTx.go``` con las propiedades ACID para la transferencia de dinero entre 2 Accounts y su respectivo Unit Test:
+
 <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/4e3b1cf6-f593-46b7-a101-5a2e32f992b9"/>
 
 **7.** Creacion de Unit Tests (TDD) con go routines para simular tracciones concurrentes y evitar transaction locks.
@@ -48,6 +49,7 @@ s de la DB de una version a otra:
 | Serialization Anomaly                   | SI              | SI            | SI              | NO           |
 
 **10.**  Creacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores:
+
 <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/d7ac2106-9628-41db-a203-3e653bf30ddc"/>
 
 ***
