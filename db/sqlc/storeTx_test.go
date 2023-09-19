@@ -21,6 +21,7 @@ func TestTransferTx(t *testing.T) {
 	// Run n concurrent transfer transactions
 	n := 5
 	amount := float32(10)
+	amount = float32(math.Floor(float64(amount*100)) / 100)
 
 	errs := make(chan error)
 	results := make(chan TransferTxResult)
@@ -133,6 +134,7 @@ func TestTransferTxDeadlock(t *testing.T) {
 	// Run n concurrent transfer transactions
 	n := 10
 	amount := float32(10)
+	amount = float32(math.Floor(float64(amount*100)) / 100)
 
 	errs := make(chan error)
 
@@ -150,7 +152,7 @@ func TestTransferTxDeadlock(t *testing.T) {
 			_, err := store.TransferTx(context.Background(), TransferTxParams{
 				FromAccountID: fromAccountID,
 				ToAccountID:   toAccountID,
-				Amount:        amount,
+				Amount:        float32(math.Floor(float64(amount*100)) / 100),
 			})
 			errs <- err
 		}()

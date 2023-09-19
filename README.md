@@ -3,9 +3,11 @@
 ## 🔨 Tecnologias usadas:
 - **Go**: go1.21.0 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
-- **Docker**: v24.0.6
+- **Gin**: gin-gonic/gin v1.9.1
+- **Docker**: docker v24.0.6
 - **CI**: GitHub Actions
-- **sqlc**: v1.21.0
+- **sqlc**: sqlc-dev/sqlc v1.21.0
+- **Testify**: stretchr/testify v1.8.4
 - **Migrate**: golang-migrate v4.16.2
 - **Make**: GNU Make v4.3
 
@@ -57,4 +59,4 @@ s de la DB de una version a otra:
 
 ### Construccione de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
-**1.** Crecion de una RESTful HTTP API basico con Gin, configurancion del server y agregado las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion  
+**1.** Crecion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
