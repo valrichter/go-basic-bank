@@ -26,3 +26,5 @@ func TestMain(m *testing.M) {
 	testQueries = New(testDB)
 	os.Exit(m.Run())
 }
+
+// TODO: write tests for entry.sql & transfer.sql

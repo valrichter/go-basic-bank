@@ -39,6 +39,7 @@ func (store *Store) execTx(ctx context.Context, fn func(*Queries) error) error {
 	return tx.Commit()
 }
 
+// TODO: Fix Amount float32
 // Contains the imput parameters for creating a new transfer
 type TransferTxParams struct {
 	FromAccountID int64   `json:"from_account_id"`
