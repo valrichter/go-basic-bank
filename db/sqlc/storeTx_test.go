@@ -129,7 +129,7 @@ func TestTransferTxDeadlock(t *testing.T) {
 	// Create two random accounts
 	account1 := createRandomAccount(t)
 	account2 := createRandomAccount(t)
-	fmt.Println(">> Before transfer:", "Acc1:", account1.Balance, account1.ID, "Acc2:", account2.Balance, account2.ID)
+	fmt.Println(">> Before transfer:", "Acc1:", account1.Balance, "ID1:", account1.ID, "Acc2:", account2.Balance, "ID2:", account2.ID)
 
 	// Run n concurrent transfer transactions
 	n := 10
@@ -171,7 +171,7 @@ func TestTransferTxDeadlock(t *testing.T) {
 	updatedAccount2, err := testQueries.GetAccount(context.Background(), account2.ID)
 	require.NoError(t, err)
 
-	fmt.Println(">> After transfer: ", "Acc1:", updatedAccount1.Balance, updatedAccount1.ID, "Acc2:", updatedAccount2.Balance, updatedAccount1.ID)
+	fmt.Println(">> After transfer: ", "Acc1:", updatedAccount1.Balance, "ID1:", updatedAccount1.ID, "Acc2:", updatedAccount2.Balance, "ID2:", updatedAccount1.ID)
 
 	require.Equal(t, account1.Balance, updatedAccount1.Balance)
 	require.Equal(t, account2.Balance, updatedAccount2.Balance)
