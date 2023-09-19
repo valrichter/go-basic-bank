@@ -30,7 +30,7 @@ s de la DB de una version a otra:
 **4.** Generacion de CRUD basico para las tablas Account, Entry & Transfer con sqlc. Configuracion de sqlc para hacer consultas SQL con codigo Go:
    - Como funciona? Consulta SQL -> [sqlc] -> Codigo Go con interfaces para poder interactuar
 
-**5.** Generacion de datos falsos y creacion de Unit Tests para los CRUD de las tablas Account, Entry & Transfer:
+**5.** Generacion de datos falsos y creacion de Unit Tests para CRUD de la tabla Account:
    - Utlizacion del archivo ```random.go```
 
 **6.** Creacion de una transaccion ```StoreTx.go``` con las propiedades ACID para la transferencia de dinero entre 2 Accounts y su respectivo Unit Test:
@@ -44,10 +44,10 @@ s de la DB de una version a otra:
 **9.** Estudio de los distintos Insolation Levels en PostgreSQL:
 | Read Phenomena / Isonlation Levels ANSI | Read Uncommited | Read Commited | Repeatable Read | Serializable |
 | :-------------------------------------: | :-------------: | :-----------: | :-------------: | :----------: |
-| Dirty Read                              | NO              | NO            | NO              | NO           |
-| Non-Repeatable Read                     | SI              | SI            | NO              | NO           |
-| Phantom Read                            | SI              | SI            | NO              | NO           |
-| Serialization Anomaly                   | SI              | SI            | SI              | NO           |
+|               Dirty Read                |       NO        |      NO       |       NO        |      NO      |
+|           Non-Repeatable Read           |       SI        |      SI       |       NO        |      NO      |
+|              Phantom Read               |       SI        |      SI       |       NO        |      NO      |
+|          Serialization Anomaly          |       SI        |      SI       |       SI        |      NO      |
 
 **10.**  Creacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores:
 
@@ -56,3 +56,5 @@ s de la DB de una version a otra:
 ***
 
 ### Construccione de una RESTful HTTP JSON API [Gin + JWT + PASETO]
+
+**1.** Crecion de una RESTful HTTP API basico con Gin, configurancion del server y agregado las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion  
