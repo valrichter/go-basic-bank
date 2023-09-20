@@ -3,17 +3,17 @@
 ## 🔨 Tecnologias usadas:
 - **Go**: go1.21.0 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
-- **Gin**: gin-gonic/gin v1.9.1
 - **Docker**: docker v24.0.6
 - **CI**: GitHub Actions
-- **sqlc**: sqlc-dev/sqlc v1.21.0
-- **Testify**: stretchr/testify v1.8.4
+- **SQLC**: sqlc-dev/sqlc v1.21.0
 - **Migrate**: golang-migrate v4.16.2
 - **Make**: GNU Make v4.3
-- **Viper**: spf13/viper v1.16.0
-- mockgen -version
-v1.6.0
 
+### 📦 Herramietas:
+- **Gin**: gin-gonic/gin v1.9.1
+- **Testify**: stretchr/testify v1.8.4
+- **Viper**: spf13/viper v1.16.0
+- **GoMock**: golang/mock v1.6.0
 ## ⚡ Acciones realizadas durante el proyecto:
 
 ### Trabajando con DB [PostgreSQL + sqlc]
@@ -65,3 +65,5 @@ s de la DB de una version a otra:
 **1.** Creacion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
 
 **2.** Creacion de variables de entorno con ```.env``` y viper
+
+**3.** Creacion de Mock DB con GoMock para testear los metodos de ```account.go``` de la API HTTP y logrando en covertura del 100% del metodo GetAccounts

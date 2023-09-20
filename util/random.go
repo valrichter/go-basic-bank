@@ -32,3 +32,8 @@ func RandomEmail() string {
 	email := gofakeit.Email()
 	return email
 }
+
+// RandomInt generates a random integer between min and max
+func RandomInt(min, max int64) int64 {
+	return min + rand.Int63n(max-min+1)
+}
