@@ -59,4 +59,6 @@ s de la DB de una version a otra:
 
 ### Construccione de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
-**1.** Crecion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
+**1.** Creacion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
+
+**2.** Creacion de variables de entorno con ```.env``` y viper
