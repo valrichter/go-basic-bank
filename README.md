@@ -10,6 +10,9 @@
 - **Testify**: stretchr/testify v1.8.4
 - **Migrate**: golang-migrate v4.16.2
 - **Make**: GNU Make v4.3
+- **Viper**: spf13/viper v1.16.0
+- mockgen -version
+v1.6.0
 
 ## ⚡ Acciones realizadas durante el proyecto:
 
