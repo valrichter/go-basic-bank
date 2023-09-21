@@ -71,3 +71,5 @@ s de la DB de una version a otra:
 **4.** Implementacion de ```transfer.go``` de la API HTTP para enviar dinero entre dos cuentas y se agrego un ```validator.go``` para validar la Currency de las cuentas relacionadas con la transferencia de dinero
 
 **5.** Se actualizao la base de datos y se agrego la tabla User para que cada usuario pueda tener distintas Accounts con diferentes Currency como ARS, UDS o EUR
+
+<img src="https://github.com/valrichter/basic-system-bank/assets/67121197/bf038ca4-d223-4921-ab9d-769088ac0c18"/>
