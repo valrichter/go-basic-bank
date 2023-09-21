@@ -32,3 +32,12 @@ type Transfer struct {
 	Amount    float32   `json:"amount"`
 	CreatedAt time.Time `json:"created_at"`
 }
+
+type User struct {
+	Username         string    `json:"username"`
+	HashedPassword   string    `json:"hashed_password"`
+	FullName         string    `json:"full_name"`
+	Email            string    `json:"email"`
+	PasswordChagedAt time.Time `json:"password_chaged_at"`
+	CreatedAt        time.Time `json:"created_at"`
+}

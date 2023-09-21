@@ -1,5 +1,5 @@
 CREATE TABLE
-    "user" (
+    "users" (
         "username" varchar PRIMARY KEY,
         "hashed_password" varchar NOT NULL,
         "full_name" varchar NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE
 
 ALTER TABLE "account"
 ADD
-    FOREIGN KEY ("owner") REFERENCES "user" ("username");
+    FOREIGN KEY ("owner") REFERENCES "users" ("username");
 
 -- CREATE UNIQUE INDEX ON "account" ("owner", "currency");
 
