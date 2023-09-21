@@ -54,7 +54,7 @@ s de la DB de una version a otra:
 |              Phantom Read               |       SI        |      SI       |       NO        |      NO      |
 |          Serialization Anomaly          |       SI        |      SI       |       SI        |      NO      |
 
-**10.**  Creacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores:
+**10.**  Implementacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores:
 
 <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/d7ac2106-9628-41db-a203-3e653bf30ddc"/>
 
@@ -62,8 +62,10 @@ s de la DB de una version a otra:
 
 ### Construccione de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
-**1.** Creacion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
+**1.** Implementacion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
 
 **2.** Creacion de variables de entorno con ```.env``` y viper
 
-**3.** Creacion de Mock DB con GoMock para testear los metodos de ```account.go``` de la API HTTP y logrando en covertura del 100% del metodo GetAccounts
+**3.** Implementacion de Mock DB con GoMock para testear los metodos de ```account.go``` de la API HTTP y logrando en covertura del 100% del metodo GetAccounts
+
+**4.** Implementacion de ```transfer.go``` de la API HTTP para enviar dinero entre dos cuentas
