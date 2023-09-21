@@ -22,7 +22,7 @@ func RandomMoney() float32 {
 
 // Generates a random currency code
 func RandomCurrency() string {
-	currencies := []string{"ARS", "EUR", "USD"}
+	currencies := []string{ARS, EUR, USD}
 	n := len(currencies)
 	return currencies[rand.Intn(n)]
 }
