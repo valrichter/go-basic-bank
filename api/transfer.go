@@ -9,6 +9,7 @@ import (
 	db "github.com/valrichter/basic-system-bank/db/sqlc"
 )
 
+// TODO: make tests for transfers
 type transferRequest struct {
 	FromAccountID int64   `json:"from_account_id" binding:"required"`
 	ToAccountID   int64   `json:"to_account_id" binding:"required"`

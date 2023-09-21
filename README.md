@@ -68,4 +68,4 @@ s de la DB de una version a otra:
 
 **3.** Implementacion de Mock DB con GoMock para testear los metodos de ```account.go``` de la API HTTP y logrando en covertura del 100% del metodo GetAccounts
 
-**4.** Implementacion de ```transfer.go``` de la API HTTP para enviar dinero entre dos cuentas
+**4.** Implementacion de ```transfer.go``` de la API HTTP para enviar dinero entre dos cuentas y se agrego un ```validator.go``` para validar la Currency de las cuentas relacionadas con la transferencia de dinero
