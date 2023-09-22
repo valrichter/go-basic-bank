@@ -1,4 +1,4 @@
-# Proyecto extenso de Backend con Go <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" />
+# <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go 
 
 ## 🔨 Tecnologias usadas:
 - **Go**: go1.21.0 linux/amd64
