@@ -72,6 +72,6 @@ s de la DB de una version a otra:
 
 **5.** Se actualizao la base de datos y se agrego la tabla User para que cada usuario pueda tener distintas Accounts con diferentes Currency como ARS, UDS o EUR
 
-<img src="https://github.com/valrichter/basic-system-bank/assets/67121197/4d96ea9e-4519-4644-a5ba-8496e2a91173"/>
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/54005e6b-ebad-4689-af1d-d1b602b25c9a"/>
 
 **6.** Implentacion y test de CRUD users, manejo de errores de la db y fix de la API ```account.go``` para que funcione con la nueva tabla Users
