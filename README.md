@@ -75,3 +75,5 @@ s de la DB de una version a otra:
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/54005e6b-ebad-4689-af1d-d1b602b25c9a"/>
 
 **6.** Implentacion y test de CRUD users, manejo de errores de la db y fix de la API ```account.go``` para que funcione con la nueva tabla Users
+
+**7.** Implentacion del la API ```user.go``` y ecnriptacion de la passwaord de los Users utilizando bcrypt

@@ -35,5 +35,17 @@ func RandomEmail() string {
 
 // RandomInt generates a random integer between min and max
 func RandomInt(min, max int64) int64 {
-	return min + rand.Int63n(max-min+1)
+	n := min + rand.Int63n(max-min+1)
+	return n
+}
+
+// RandomPassword generates a random password
+func RandomPassword(length int) string {
+	password := gofakeit.Password(false, false, false, false, false, length)
+	return password
+}
+
+func RandomUsername() string {
+	username := gofakeit.Username()
+	return username
 }
