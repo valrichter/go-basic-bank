@@ -77,3 +77,5 @@ s de la DB de una version a otra:
 **6.** Implentacion y test de CRUD users, manejo de errores de la db y fix de la API ```account.go``` para que funcione con la nueva tabla Users
 
 **7.** Implentacion del la API ```user.go``` y encriptacion de la passwaord de los Users utilizando bcrypt para evitar "Rainbow Attacks"
+
+**8.** Creacion de test para la funcion createUser de la API ```user.go```
