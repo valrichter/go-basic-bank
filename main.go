@@ -5,9 +5,9 @@ import (
 	"log"
 
 	_ "github.com/lib/pq"
-	"github.com/valrichter/basic-system-bank/api"
-	db "github.com/valrichter/basic-system-bank/db/sqlc"
-	"github.com/valrichter/basic-system-bank/util"
+	"github.com/valrichter/go-basic-bank/api"
+	db "github.com/valrichter/go-basic-bank/db/sqlc"
+	"github.com/valrichter/go-basic-bank/util"
 )
 
 func main() {

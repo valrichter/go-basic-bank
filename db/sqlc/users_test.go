@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"github.com/valrichter/basic-system-bank/util"
+	"github.com/valrichter/go-basic-bank/util"
 )
 
 func createRandomUser(t *testing.T) User {

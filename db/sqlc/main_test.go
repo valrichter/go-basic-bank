@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	_ "github.com/lib/pq"
-	"github.com/valrichter/basic-system-bank/util"
+	"github.com/valrichter/go-basic-bank/util"
 )
 
 var testQueries *Queries

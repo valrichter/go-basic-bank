@@ -12,9 +12,9 @@ import (
 
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/require"
-	mockdb "github.com/valrichter/basic-system-bank/db/mock"
-	db "github.com/valrichter/basic-system-bank/db/sqlc"
-	"github.com/valrichter/basic-system-bank/util"
+	mockdb "github.com/valrichter/go-basic-bank/db/mock"
+	db "github.com/valrichter/go-basic-bank/db/sqlc"
+	"github.com/valrichter/go-basic-bank/util"
 )
 
 func TestGetAccountAPI(t *testing.T) {

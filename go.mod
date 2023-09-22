@@ -1,4 +1,4 @@
-module github.com/valrichter/basic-system-bank
+module github.com/valrichter/go-basic-bank
 
 go 1.21.0
 

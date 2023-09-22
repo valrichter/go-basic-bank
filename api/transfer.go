@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	db "github.com/valrichter/basic-system-bank/db/sqlc"
+	db "github.com/valrichter/go-basic-bank/db/sqlc"
 )
 
 // TODO: make tests for transfers
