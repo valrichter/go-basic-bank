@@ -87,3 +87,5 @@ s de la DB de una version a otra:
 **10.** Implentacion de generatcion de tokes de JWT y PASETO con sus test para la generacion de tokens
 
 **11.** Implentacion de Paseto para login de Users
+
+**12.** Implementacion de middleware de autenticación y reglas de autorización usando Gin
