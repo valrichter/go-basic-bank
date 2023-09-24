@@ -84,4 +84,6 @@ s de la DB de una version a otra:
 
 **9.** Entendimiento de las defirencias entre JWT y PASETO. Problemas de seguridad de JWT y como funciona PASETO
 
-**10.** Implentacion de JWT y PASETO con sus test para la generacion de tokens
+**10.** Implentacion de generatcion de tokes de JWT y PASETO con sus test para la generacion de tokens
+
+**11.** Implentacion de Paseto para login de Users
