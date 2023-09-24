@@ -79,3 +79,5 @@ s de la DB de una version a otra:
 **7.** Implentacion del la API ```user.go``` y encriptacion de la passwaord de los Users utilizando bcrypt para evitar "Rainbow Attacks"
 
 **8.** Creacion de test para la funcion createUser de la API ```user.go```
+
+**9.** Entendimiento de las defirencias entre JWT y PASETO. Problemas de seguridad de JWT y como funciona PASETO
