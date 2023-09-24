@@ -14,6 +14,8 @@
 - **Testify**: stretchr/testify v1.8.4
 - **Viper**: spf13/viper v1.16.0
 - **GoMock**: golang/mock v1.6.0
+- **JWT**: golang-jwt/jwt v3.2.2+incompatible
+- **Paseto**: o1egl/paseto
 ## ⚡ Acciones realizadas durante el proyecto:
 
 ### Trabajando con DB [PostgreSQL + sqlc]
@@ -81,3 +83,5 @@ s de la DB de una version a otra:
 **8.** Creacion de test para la funcion createUser de la API ```user.go```
 
 **9.** Entendimiento de las defirencias entre JWT y PASETO. Problemas de seguridad de JWT y como funciona PASETO
+
+**10.** Implentacion de JWT y PASETO con sus test para la generacion de tokens
