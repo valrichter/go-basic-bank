@@ -3,6 +3,7 @@ package api
 import (
 	"database/sql"
 	"fmt"
+	"math"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -11,7 +12,6 @@ import (
 	"github.com/valrichter/go-basic-bank/token"
 )
 
-// TODO: make tests for transfers
 type transferRequest struct {
 	FromAccountID int64   `json:"from_account_id" binding:"required"`
 	ToAccountID   int64   `json:"to_account_id" binding:"required"`
@@ -46,7 +46,7 @@ func (server *Server) createTransfer(ctx *gin.Context) {
 	arg := db.TransferTxParams{
 		FromAccountID: req.FromAccountID,
 		ToAccountID:   req.ToAccountID,
-		Amount:        req.Amount,
+		Amount:        float32(math.Floor(float64(req.Amount*100)) / 100),
 	}
 
 	result, err := server.store.TransferTx(ctx, arg)
