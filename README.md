@@ -92,4 +92,4 @@ s de la DB de una version a otra:
 
 ***
 
-### Deployar la aplicacion a produccion [Docker + kubernetes + AWS]
+### Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
