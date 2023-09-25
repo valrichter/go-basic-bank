@@ -94,4 +94,4 @@ s de la DB de una version a otra:
 
 ### Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
 
-**1.**
+**1.** Se creo un archivo Dockerfile multietapa para crear la imagen con la app que contenga solo el binario ejecutable
