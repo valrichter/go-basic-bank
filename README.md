@@ -1,7 +1,7 @@
 # <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go 
 
 ## 🔨 Tecnologias usadas:
-- **Go**: go1.21.0 linux/amd64
+- **Go**: go1.21.1 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
 - **Docker**: docker v24.0.6
 - **CI**: GitHub Actions
@@ -93,3 +93,7 @@ s de la DB de una version a otra:
 ***
 
 ### Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
+
+**1.** Se creo un archivo Dockerfile multietapa para crear la imagen con la app que contenga solo el binario ejecutable
+
+**2.** Se conecto los dos conatiners, el que contiene la db y el que contiene el binario ejecutable, a una misma network para que puedan comunicarse entre ellos
