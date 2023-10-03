@@ -100,4 +100,6 @@ s de la DB de una version a otra:
 
 **3.** Configuracion de docker-compose para inicializar los dos servicios y coordinarlos
 
-**4.** Investigacion de como usar AWS 
+**4.** Investigacion de como usar AWS para conrrer los conatiners de docker en la nube
+
+
