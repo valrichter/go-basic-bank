@@ -20,7 +20,7 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **Paseto**: o1egl/paseto v1.0.0
 ## ⚡ Acciones realizadas durante el proyecto:
 
-### Trabajando con DB [PostgreSQL + sqlc]
+### 🗃️ Coneccion con la DB [PostgreSQL + sqlc]
 
 **1.** Esquema de la DB y realacion entre tablas:
    - Crear una Account (Owner, Balance, Currency)
@@ -64,7 +64,7 @@ s de la DB de una version a otra:
 
 ***
 
-### Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
+### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
 **1.** Implementacion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
 
@@ -94,7 +94,7 @@ s de la DB de una version a otra:
 
 ***
 
-### Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
+### ☁️ Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
 
 **1.** Se creo un archivo Dockerfile multietapa para crear la imagen con la app que contenga solo el binario ejecutable
 
