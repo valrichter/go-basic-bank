@@ -5,13 +5,13 @@ on:
     branches: ["main"]
 
 jobs:
-  build-and-push:
-    name: Build and Push to ECR
+  build:
+    name: Build & Push to ECR
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Ceckout code
+        uses: actions/checkout@v3
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
