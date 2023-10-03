@@ -102,4 +102,6 @@ s de la DB de una version a otra:
 
 **4.** Investigacion de como usar AWS para conrrer los conatiners de docker en la nube
 
+**5.** Configuracion de GitHub Actions para poder automatizar el deploy de un container en ECR de AWS
+
 
