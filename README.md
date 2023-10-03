@@ -1,5 +1,7 @@
 # <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go 
 
+Es un sistema basico del funcionamiento de un banco echo en Go. Aplicando distintos conceptos de Backend + CI/CD + AWS.
+La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero entre usuarios de la app
 ## 🔨 Tecnologias usadas:
 - **Go**: go1.21.1 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
