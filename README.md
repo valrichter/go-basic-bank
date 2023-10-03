@@ -97,3 +97,7 @@ s de la DB de una version a otra:
 **1.** Se creo un archivo Dockerfile multietapa para crear la imagen con la app que contenga solo el binario ejecutable
 
 **2.** Se conecto los dos conatiners, el que contiene la db y el que contiene el binario ejecutable, a una misma network para que puedan comunicarse entre ellos
+
+**3.** Configuracion de docker-compose para inicializar los dos servicios y coordinarlos
+
+**4.** Investigacion de como usar AWS 
