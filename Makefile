@@ -7,6 +7,9 @@ createdb:
 dropdb:
 	docker exec -it postgres15.4 dropdb bank
 
+migrateAWS:
+	migrate -path db/migration -database "postgresql://root:jZv5FR8Kl7zFLu0XeykL@basic-bank.c0yzhxhtjoab.sa-east-1.rds.amazonaws.com:5432/bank" -verbose up
+
 migrateup:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/bank?sslmode=disable" -verbose up
 
