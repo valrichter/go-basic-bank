@@ -53,8 +53,8 @@ s de la DB de una version a otra:
    - Funcionalidad de negocio a implementar ---> Transferir de la cuenta bancaria "account1" a la cuenta bancaria "account2" 10 USD
    - Pasos de la implementacion:
      1. Crear un registro de la transferecnia de 10 USD
-     2. Crear un ``entry``` de dinero para la account1 con el un amount = -10
-     3. Crear un ``entry``` de dinero para la account2 con el un amount = +10
+     2. Crear un ```entry``` de dinero para la account1 con el un amount = -10
+     3. Crear un ```entry``` de dinero para la account2 con el un amount = +10
      4. Restar 10 USD del balance total que posee la account1
      5. Sumar 10 al balance de la account2
 
@@ -161,7 +161,7 @@ s de la DB de una version a otra:
 **3.** Configuracion de ```Docker-compose``` para inicializar los dos servicios (APP y DB), coordinarlos y controlar las órdenes de inicio del servicio
    - Esta parte requirio mucha investigacion sobre como funciona docker y docker-compose
 
-**4.** Investigacion de como usar AWS para conrrer servicios en la nube
+**4.** Investigacion de como usar AWS para conrrer servicios en la nube y creacion de una cuenta de AWS
 
 **5.** Se automatizo la creacion y envío de la imagen de Docker a ```AWS ECR``` con Github Actions. Esto se configuro en el archivo ```github/workflow/deploy.yml```
    - Cada vez que se hace un nuevo pull a la rama main se crea y envia una nueva imagen de docker al repositorio de AWS ECR
@@ -169,4 +169,5 @@ s de la DB de una version a otra:
 
 **6.** Configuracion de ```AWS RDS``` para levantar una PostgreSQL DB de produccion en la nube
 
-**7.** Store & retrieve production secrets with AWS secrets manager AWS CLI, jq, AWS Secrets Manager aws secretsmanager get-secret-value --secret-id go-basic-bank aws --version aws-cli/2.13.24 Python/3.11.5 Linux/6.2.0-34-generic exe/x86_64.ubuntu.22 prompt/off aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]' jq --version jq-1.6
+**7.** Almacenamiento y recuperacion secretos de producción con el administrador de secretos de ```AWS Secrets Manager``` 
+Store & retrieve production secrets with AWS secrets manager AWS CLI, jq, AWS Secrets Manager aws secretsmanager get-secret-value --secret-id go-basic-bank aws --version aws-cli/2.13.24 Python/3.11.5 Linux/6.2.0-34-generic exe/x86_64.ubuntu.22 prompt/off aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]' jq --version jq-1.6
