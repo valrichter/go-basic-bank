@@ -91,7 +91,11 @@ s de la DB de una version a otra:
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c79b7e51-e376-4a0e-9831-4bd1a711ffc1"/>
 
 **Etapa 1.** Arquitectura de la aplicacion en la primer etapa
-   - Modelado de los datos, ejecucion en entorno local, base de datos local e implementacion basica de CI
+   - Resumen:
+      - Modelado de los datos
+      - EWjecucion en entorno local
+      - Base de datos local (PostgreSQL docker)
+      - Implementacion basica de CI
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/94e19962-d5f6-48c0-bddd-d74701b1b4dc"/>
 
 ***
@@ -138,23 +142,31 @@ s de la DB de una version a otra:
 **12.** Implementacion de middleware de autenticación y reglas de autorización usando Gin. Permitiendo manejar errores de manera mas eficiente
 
 **Etapa 2.** Arquitectura de la aplicacion en la segunda etapa
-   - Creacion de la API, autenticaion de usuario, encriptacion de passwords y database mock test
+   - Resumen:
+      - Creacion de la API
+      - Autenticaion de Users
+      - Encriptacion de passwords
+      - Database Mock Test
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/d5f72f15-f84c-4ae1-a131-3236c879c4f5"/>
 
 ***
 
 ### ☁️ Deployar la aplicacion a produccion, DevOps [Docker + Kubernetes + AWS]
 
-**1.** Se creo un archivo Dockerfile multietapa para crear la imagen con la app que contenga solo el binario ejecutable
+**1.** Se creo un archivo ```Dockerfile``` multietapa para crear una imagen mínima de Golang Docker que contenga solo el binario ejecutable de la app
+   - Esto es util a la hora de correr una aplicacion de produccion en cualquier parte
 
-**2.** Se conecto los dos conatiners, el que contiene la db y el que contiene el binario ejecutable, a una misma network para que puedan comunicarse entre ellos
+**2.** El que container la DB y el container de la APP, ambos, fueron conectados a una misma network para que puedan comunicarse entre containers
 
-**3.** Configuracion de docker-compose para inicializar los dos servicios y coordinarlos
+**3.** Configuracion de ```Docker-compose``` para inicializar los dos servicios (APP y DB), coordinarlos y controlar las órdenes de inicio del servicio
+   - Esta parte requirio mucha investigacion sobre como funciona docker y docker-compose
 
-**4.** Investigacion de como usar AWS para conrrer los conatiners de docker en la nube
+**4.** Investigacion de como usar AWS para conrrer servicios en la nube
 
-**5.** Configuracion de GitHub Actions para poder automatizar el deploy de un container en ECR de AWS
+**5.** Se automatizo la creacion y envío de la imagen de Docker a ```AWS ECR``` con Github Actions. Esto se configuro en el archivo ```github/workflow/deploy.yml```
+   - Cada vez que se hace un nuevo pull a la rama main se crea y envia una nueva imagen de docker al repositorio de AWS ECR
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c38dd623-46cd-4c87-a247-6e9449e7abac"/>
 
-**6.** Configuracion de AWS RDS para levantar una DB Postgres de produccion en la nube
+**6.** Configuracion de ```AWS RDS``` para levantar una PostgreSQL DB de produccion en la nube
 
 **7.** Store & retrieve production secrets with AWS secrets manager AWS CLI, jq, AWS Secrets Manager aws secretsmanager get-secret-value --secret-id go-basic-bank aws --version aws-cli/2.13.24 Python/3.11.5 Linux/6.2.0-34-generic exe/x86_64.ubuntu.22 prompt/off aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]' jq --version jq-1.6
