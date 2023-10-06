@@ -19,7 +19,12 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **GoMock**: golang/mock v1.6.0
 - **JWT**: golang-jwt/jwt v3.2.2+incompatible
 - **Paseto**: o1egl/paseto v1.0.0
+- **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
+
 ## ⚡ Acciones realizadas durante el proyecto:
+- 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
+- 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
+- ☁️ Deployar la aplicacion a produccion, DevOps [Docker + Kubernetes + AWS]
 
 ### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
 
@@ -39,7 +44,7 @@ s de la DB de una version a otra:
 
 **4.** Generacion de CRUD basico para las tablas Account, Entry & Transfer con sqlc. Configuracion de sqlc para hacer consultas SQL con codigo Go
    - Como funciona:
-      - Input: Se escribe la consulta en SQL ---> Blackbox: [sqlc] ---> Output: Funciones en Golang con interfaces para poder utilizarlas y hacer consultas
+      - **Input**: Se escribe la consulta en SQL ---> **Blackbox**: [sqlc] ---> **Output**: Funciones en Golang con interfaces para poder utilizarlas y hacer consultas
 
 **5.** Generacion de datos falsos y creacion de Unit Tests para CRUD de la tabla Account:
    - Utlizacion del archivo ```random.go```
@@ -93,35 +98,52 @@ s de la DB de una version a otra:
 
 ### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
-**1.** Implementacion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
+**1.** Implementacion de una RESTful HTTP API basico con el framework Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion con la respectiva validacion de los datos recibidos a traves de JSON
 
-**2.** Creacion de variables de entorno con ```.env``` y viper
+**2.** Creacion y configuracion de variables de entorno ```.env``` con la herramienta Viper
 
-**3.** Implementacion de Mock DB con GoMock para testear los metodos de ```account.go``` de la API HTTP y logrando en covertura del 100% del metodo GetAccounts
+**3.** Implementacion de database mock (DB temporal) con GoMock para testear los metodos en ```account.go``` de la API HTTP y logrando una covertura del 100% del metodo GetAccounts
+   - Porque implementar Mock Database:
+     - Escribir test independientes es mas facil porque cada test utilizara su propia db
+     - Test mas rapidos ya que no se espera la coneccion a la db y tampoco hay espera en la ejecucion de las querys. Todas la acciones son realizadas en memoria
+     - Permite escribir test con 100% de covertura ya que podemos configurar casos extremos
 
 **4.** Implementacion de ```transfer.go``` de la API HTTP para enviar dinero entre dos cuentas y se agrego un ```validator.go``` para validar la Currency de las cuentas relacionadas con la transferencia de dinero
 
-**5.** Se actualizao la base de datos y se agrego la tabla User para que cada usuario pueda tener distintas Accounts con diferentes Currency como ARS, UDS o EUR
-
+**5.** Cambio en la base de datos. 
+   - Se agrego la tabla User para que cada usuario pueda tener distintas Accounts con diferentes Currency como ARS, UDS o EUR
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/54005e6b-ebad-4689-af1d-d1b602b25c9a"/>
 
-**6.** Implentacion y test de CRUD users, manejo de errores de la db y fix de la API ```account.go``` para que funcione con la nueva tabla Users
+**6.** Implentacion y test de CRUD para la tabla Users, manejo de errores de PostgreSQL y fix de la API ```account.go``` para que funcione con la nueva tabla Users
 
-**7.** Implentacion del la API ```user.go``` y encriptacion de la passwaord de los Users utilizando bcrypt para evitar "Rainbow Attacks"
+**7.** Implentacion del la API ```user.go``` y encriptacion de la password de los Users utilizando bcrypt
+   - Como funciona:
+      - **Input**: password123 ---> **Blackbox**: bcrypt ---> **Output**: $2a$10$BqwmET/4eq5.uIibth/rrOqSC2eqo5cy80Yj2RKuLicpRCIm1RlX. 
 
-**8.** Creacion de test para la funcion createUser de la API ```user.go```
+**8.** Creacion de unit test mas solidos con un comparador gomock personalizado para la funcion createUser de la API ```user.go```.
 
-**9.** Entendimiento de las defirencias entre JWT y PASETO. Problemas de seguridad de JWT y como funciona PASETO
+**9.** Compresion del funcionamento de la autenticacion por tokens, diferencias entre JWT y PASETO, problemas de seguridad de JWT y como funciona PASETO
+   - Como funciona la autenticacion por token:
+     - El cliente proporciona username y password
+     - Si son correctos el servidor creara y firmara un token con la secret key
+     - Luego mandara un access token
+     - Luego si el cliente desea acceder a algun recurso lo hace utilizando el token en la solicitud
+     - El servidor verifica el toke, si es valido autoriza la solicitud
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/07e1ed84-4838-4a4f-899f-2671aca1becd"/>
 
-**10.** Implentacion de generatcion de tokes de JWT y PASETO con sus test para la generacion de tokens
+**10.** Creacion y verificacion de tokens de JWT y PASETO con sus respectivos tests
 
-**11.** Implentacion de Paseto para login de Users
+**11.** Implementacionde de la API de login para que devuelve el token de acceso ya sea en PASETO o JWT
 
-**12.** Implementacion de middleware de autenticación y reglas de autorización usando Gin
+**12.** Implementacion de middleware de autenticación y reglas de autorización usando Gin. Permitiendo manejar errores de manera mas eficiente
+
+**Etapa 2.** Arquitectura de la aplicacion en la segunda etapa
+   - Creacion de la API, autenticaion de usuario, encriptacion de passwords y database mock test
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/d5f72f15-f84c-4ae1-a131-3236c879c4f5"/>
 
 ***
 
-### Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
+### ☁️ Deployar la aplicacion a produccion, DevOps [Docker + Kubernetes + AWS]
 
 **1.** Se creo un archivo Dockerfile multietapa para crear la imagen con la app que contenga solo el binario ejecutable
 
@@ -135,3 +157,4 @@ s de la DB de una version a otra:
 
 **6.** Configuracion de AWS RDS para levantar una DB Postgres de produccion en la nube
 
+**7.** Store & retrieve production secrets with AWS secrets manager AWS CLI, jq, AWS Secrets Manager aws secretsmanager get-secret-value --secret-id go-basic-bank aws --version aws-cli/2.13.24 Python/3.11.5 Linux/6.2.0-34-generic exe/x86_64.ubuntu.22 prompt/off aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]' jq --version jq-1.6
