@@ -65,7 +65,7 @@ s de la DB de una version a otra:
 
 **10.**  Implementacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores:
 
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/112a742c-1ec0-467a-ac5e-1ce623fc5bdb"/>
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/360830da-24c9-4ae7-988f-35a7bf680f90"/>
 
 ***
 
