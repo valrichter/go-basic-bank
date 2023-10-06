@@ -22,7 +22,7 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 
 ### Trabajando con DB [PostgreSQL + sqlc]
 
-**1.** Esquema de la DB y realacion entre tablas:
+**1.** Esquema de la DB y relacion entre tablas:
    - Crear una Account (Owner, Balance, Currency)
    - Registrar todos los cambios de balance en la cuenta (Entry)
    - Hacer transferencias de dinero entre 2 Accounts (Transfer)
@@ -34,7 +34,7 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 **3.** Creacion de versiones de la DB. Configuracion golang-migrate para hacer migraciones
 s de la DB de una version a otra:
    - Se agrego un Makefile para mayor comodidad a la hora de ejecutar comandos necesarios
-<img src="https://github.com/valrichter/basic-system-bank/assets/67121197/707a01c9-699c-427c-8838-16b422b891d0"/>
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f45876db-0fe9-4b3a-9e38-7256e346bb16"/>
 
 **4.** Generacion de CRUD basico para las tablas Account, Entry & Transfer con sqlc. Configuracion de sqlc para hacer consultas SQL con codigo Go:
    - Como funciona? Consulta SQL -> [sqlc] -> Codigo Go con interfaces para poder interactuar
@@ -43,8 +43,13 @@ s de la DB de una version a otra:
    - Utlizacion del archivo ```random.go```
 
 **6.** Creacion de una transaccion ```StoreTx.go``` con las propiedades ACID para la transferencia de dinero entre 2 Accounts y su respectivo Unit Test:
-
-<img src="https://github.com/valrichter/basic-system-bank/assets/67121197/4e3b1cf6-f593-46b7-a101-5a2e32f992b9"/>
+   - Funcionalidad de negocio a implementar -> Transferir de la cuenta bancaria "account1" a la cuenta bancaria "account2" 10 USD
+   - Pasos de como se implemento:
+     1. Crear un registro de la transferecnia de 10 USD
+     2. Crear un ``entry``` de dinero para la account1 con el un amount = -10
+     3. Crear un ``entry``` de dinero para la account2 con el un amount = +10
+     4. Restar 10 USD del balance total que posee la account1
+     5. Sumar 10 al balance de la account2
 
 **7.** Creacion de Unit Tests (TDD) con go routines para simular tracciones concurrentes y evitar transaction locks.
    
@@ -60,7 +65,7 @@ s de la DB de una version a otra:
 
 **10.**  Implementacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores:
 
-<img src="https://github.com/valrichter/basic-system-bank/assets/67121197/d7ac2106-9628-41db-a203-3e653bf30ddc"/>
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/112a742c-1ec0-467a-ac5e-1ce623fc5bdb"/>
 
 ***
 
