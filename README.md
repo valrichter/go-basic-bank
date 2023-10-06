@@ -1,7 +1,8 @@
-# <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go 
+# <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go
 
 Es un sistema basico del funcionamiento de un banco echo en Go. Aplicando distintos conceptos de Backend + CI/CD + AWS.
 La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero entre usuarios de la app
+
 ## 🔨 Tecnologias usadas:
 - **Go**: go1.21.1 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
@@ -20,15 +21,15 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **Paseto**: o1egl/paseto v1.0.0
 ## ⚡ Acciones realizadas durante el proyecto:
 
-### Trabajando con DB [PostgreSQL + sqlc]
+### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
 
-**1.** Esquema de la DB y relacion entre tablas:
+**1.** Esquema de la DB y relacion entre tablas
    - Crear una Account (Owner, Balance, Currency)
    - Registrar todos los cambios de balance en la cuenta (Entry)
    - Hacer transferencias de dinero entre 2 Accounts (Transfer)
    <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/f0087f1e-ab3b-4532-a7bc-1a578c7c1e2c"/>
 
-**2.** Configuracion de imagen de PostgreSQL en Docker y creacion de la DB mediante un archivo *.sql*:
+**2.** Configuracion de imagen de PostgreSQL en Docker y creacion de la DB mediante un archivo *.sql*
    - Se agregaron indices (indexes) de los atributos mas importantes de cada tabla para mayor eficiencia a la hora de la busqueda
 
 **3.** Creacion de versiones de la DB. Configuracion golang-migrate para hacer migraciones
@@ -36,24 +37,31 @@ s de la DB de una version a otra:
    - Se agrego un Makefile para mayor comodidad a la hora de ejecutar comandos necesarios
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f45876db-0fe9-4b3a-9e38-7256e346bb16"/>
 
-**4.** Generacion de CRUD basico para las tablas Account, Entry & Transfer con sqlc. Configuracion de sqlc para hacer consultas SQL con codigo Go:
-   - Como funciona? Consulta SQL -> [sqlc] -> Codigo Go con interfaces para poder interactuar
+**4.** Generacion de CRUD basico para las tablas Account, Entry & Transfer con sqlc. Configuracion de sqlc para hacer consultas SQL con codigo Go
+   - Como funciona:
+      - Input: Se escribe la consulta en SQL ---> Blackbox: [sqlc] ---> Output: Funciones en Golang con interfaces para poder utilizarlas y hacer consultas
 
 **5.** Generacion de datos falsos y creacion de Unit Tests para CRUD de la tabla Account:
    - Utlizacion del archivo ```random.go```
 
-**6.** Creacion de una transaccion ```StoreTx.go``` con las propiedades ACID para la transferencia de dinero entre 2 Accounts y su respectivo Unit Test:
-   - Funcionalidad de negocio a implementar -> Transferir de la cuenta bancaria "account1" a la cuenta bancaria "account2" 10 USD
-   - Pasos de como se implemento:
+**6.** Creacion de una transaccion ```StoreTx.go``` con las propiedades ACID para la transferencia de dinero entre 2 Accounts y su respectivo Unit Test
+   - Funcionalidad de negocio a implementar ---> Transferir de la cuenta bancaria "account1" a la cuenta bancaria "account2" 10 USD
+   - Pasos de la implementacion:
      1. Crear un registro de la transferecnia de 10 USD
      2. Crear un ``entry``` de dinero para la account1 con el un amount = -10
      3. Crear un ``entry``` de dinero para la account2 con el un amount = +10
      4. Restar 10 USD del balance total que posee la account1
      5. Sumar 10 al balance de la account2
 
-**7.** Creacion de Unit Tests (TDD) con go routines para simular tracciones concurrentes y evitar transaction locks.
+**7.** Creacion de Unit Tests (TDD) con go routines para simular tracciones concurrentes. Aplicando ```transaction locks``` con la clausula ```FOR UPDATE``` para evitar que se leean o escribar valores erroneos de una misma variable.
+   - Como utilizamos ```transaction locks```:
+     - Si la transaccion1 quiere acceder a una variable la cual en ese momento esta siendo utilizada por la transaccion2, la transaccion1 debera esperar a que la transaccion2 termine en COMMIT o ROLLBACK antes de poder acceder a dicha varibale  
    
-**8.** Modificacion del codigo para evitar situaciones deadlock y Unit Test para transactions deadlocks.
+**8.** Modificacion del codigo para evitar situaciones deadlock y Unit Test para transactions deadlocks. Aclarar que esto solo se puede evitar/mitigar y corregir dentro del codigo y la logica de negocio
+   - La Transaccion A para finalizar necesita de la Data 2, la cual esta siendo usada (y por ende bloqueanda) por la Transaccion B
+   - A su vez la Transaccion B para finalizar necesita de la Data 1 la cual esta siendo usada (y por ende bloqueanda) por la Transaccion A
+   - Esto provoca el problema de Deadlock
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c4f841bd-2d33-4a91-b829-f4b39397b098"/> 
 
 **9.** Estudio de los distintos Insolation Levels en PostgreSQL:
 | Read Phenomena / Isonlation Levels ANSI | Read Uncommited | Read Commited | Repeatable Read | Serializable |
@@ -63,13 +71,27 @@ s de la DB de una version a otra:
 |              Phantom Read               |       SI        |      SI       |       NO        |      NO      |
 |          Serialization Anomaly          |       SI        |      SI       |       SI        |      NO      |
 
-**10.**  Implementacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores:
+**10.** Implementacion de Continouous Integration (CI) con GitHub Actions para garatizar la calidad del codigo y reducir posibles errores
+   - El ```Workflow``` consta de varios Jobs
+   - Cada ```Job``` es un proceso automatizado
+   - Los Jobs pueden ser ejecutados o bien por un ```event``` que ocurre dentro del repositorio de github o estableciendo un ```scheduled``` o ```manually``` (manualmente)
+   - Para poder ejecutar un Job necesitamos especificar un Runner para cada uno de ellos
+   - Un ```Runner``` es un servidor que escucha los Jobs diponibles y solo ejecuta un Job a la vez. Es parecido a un caontainer de docker
+   - Luego cada Runner informa su progreso, logs y resultados a github
+   - Un Job es un conjunto de ```Steps``` que se ejecutaran en un mismo Runner
+   - Todos los Jobs se ejecutan en paralelo exepto cuando hay algunos Jobs que dependen entre si, entonces esos se ejecutan en serie
+   - Los ```Step``` son tareas individuales que se ejecutan en serie dentro de un Job
+   - Un Step puede contener una o varias Actions que se ejecutan en serie
+   - Una ```Action``` es un comando independiente y estas se pueden reutilizar. Por ej: ```actions/checkout@v4``` la cual verifica si nuestro codigo corre localmente
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c79b7e51-e376-4a0e-9831-4bd1a711ffc1"/>
 
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/360830da-24c9-4ae7-988f-35a7bf680f90"/>
+**Etapa 1.** Arquitectura de la aplicacion en la primer etapa
+   - Modelado de los datos, ejecucion en entorno local, base de datos local e implementacion basica de CI
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/94e19962-d5f6-48c0-bddd-d74701b1b4dc"/>
 
 ***
 
-### Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
+### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
 **1.** Implementacion de una RESTful HTTP API basico con Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion
 
