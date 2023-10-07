@@ -11,6 +11,8 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **SQLC**: sqlc-dev/sqlc v1.21.0
 - **Migrate**: golang-migrate v4.16.2
 - **Make**: GNU Make v4.3
+- **AWS CLI**: aws-cli v2.13.24
+- **jq**: jq v1.6
 
 ### 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
@@ -138,6 +140,7 @@ s de la DB de una version a otra:
 **10.** Creacion y verificacion de tokens de JWT y PASETO con sus respectivos tests
 
 **11.** Implementacionde de la API de login para que devuelve el token de acceso ya sea en PASETO o JWT
+   - La duracion del token de login se establecio en 15 minutos
 
 **12.** Implementacion de middleware de autenticación y reglas de autorización usando Gin. Permitiendo manejar errores de manera mas eficiente
 
@@ -169,5 +172,8 @@ s de la DB de una version a otra:
 
 **6.** Configuracion de ```AWS RDS``` para levantar una PostgreSQL DB de produccion en la nube
 
-**7.** Almacenamiento y recuperacion secretos de producción con el administrador de secretos de ```AWS Secrets Manager``` 
-Store & retrieve production secrets with AWS secrets manager AWS CLI, jq, AWS Secrets Manager aws secretsmanager get-secret-value --secret-id go-basic-bank aws --version aws-cli/2.13.24 Python/3.11.5 Linux/6.2.0-34-generic exe/x86_64.ubuntu.22 prompt/off aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]' jq --version jq-1.6
+**7.** Almacenamiento y recuperacion secretos de producción con el administrador de secretos ```AWS Secrets Manager``` 
+  - Se uso la aplicacion de AWS CLI para conectar con GithubActions
+  - Se uso jq para poder extraer las variables de AWS Secrets Manager
+    - ```aws secretsmanager get-secret-value --secret-id go-basic-bank```
+    - ```aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]'```
