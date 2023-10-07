@@ -26,7 +26,7 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 ## ⚡ Acciones realizadas durante el proyecto:
 - 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
 - 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
-- ☁️ Deployar la aplicacion a produccion, DevOps [Docker + Kubernetes + AWS]
+- ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
 
 ### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
 
@@ -150,11 +150,11 @@ s de la DB de una version a otra:
       - Autenticaion de Users
       - Encriptacion de passwords
       - Database Mock Test
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/d5f72f15-f84c-4ae1-a131-3236c879c4f5"/>
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f0991003-1fdc-4a26-bd85-87d0dc3ee534"/>
 
 ***
 
-### ☁️ Deployar la aplicacion a produccion, DevOps [Docker + Kubernetes + AWS]
+### ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
 
 **1.** Se creo un archivo ```Dockerfile``` multietapa para crear una imagen mínima de Golang Docker que contenga solo el binario ejecutable de la app
    - Esto es util a la hora de correr una aplicacion de produccion en cualquier parte
@@ -173,7 +173,8 @@ s de la DB de una version a otra:
 **6.** Configuracion de ```AWS RDS``` para levantar una PostgreSQL DB de produccion en la nube
 
 **7.** Almacenamiento y recuperacion secretos de producción con el administrador de secretos ```AWS Secrets Manager``` 
-  - Se uso la aplicacion de AWS CLI para conectar con GithubActions
-  - Se uso jq para poder extraer las variables de AWS Secrets Manager
+  - Se uso la aplicacion de AWS CLI para conectar darle a GithubActions las credenciales de AWS
+  - Se uso jq para poder extraer las variables de AWS Secrets Manager:
     - ```aws secretsmanager get-secret-value --secret-id go-basic-bank```
     - ```aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]'```
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/ff64d37b-760d-4f7d-bd00-17bf155884e7"/>
