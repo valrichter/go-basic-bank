@@ -1,10 +1,18 @@
 # <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go
+Se desarolla un servicio web backend para un banco simple. Se comprendio como diseñar, desarrollar e implementar un servicio web backend desde cero, proporcionando APIs para que el frontend realice las siguientes acciones:
+   1. Crear y gestionar cuentas bancarias.
+   2. Registrar todos los cambios de saldo en cada una de las cuentas.
+   3. Realizar una transferencia de dinero entre 2 cuentas.
 
-Es un sistema basico del funcionamiento de un banco echo en Go. Aplicando distintos conceptos de Backend + CI/CD + AWS.
-La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero entre usuarios de la app
+## ⚡ Acciones realizadas durante el proyecto:
+- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
+Se profundizo en el diseño de bases de datos, permitiendo modelar y gestionar datos de manera eficiente. Se interactuo con la base de datos utilizando transacciones y se comprendieron los niveles de aislamiento de la base de datos. Tambien se aprendió a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
+- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)  
+Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y se aplico autenticación de usuarios junto con la seguridad de las APIs con tokens JWT y PASETO.
+- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)  
+Se amplio el conocimiento al de como construir y desplegar una aplicación en un cluster de Kubernetes en AWS. A través de guias detalladas, se comprendio como crear imágenes Docker eficientes, configurar bases de datos de produccion, gestionar secretos de manera segura, implementar Kubernetes con EKS.
 
 ## 🔨 Tecnologias usadas:
-- **Go**: go1.21.1 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
 - **Docker**: docker v24.0.6
 - **CI**: GitHub Actions
@@ -15,7 +23,7 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **AWS CLI**: aws-cli v2.13.24
 - **AWS**: ECR, RDS, Secrets Manager, EKS
 
-### 📦 Herramietas:
+## 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
 - **Testify**: stretchr/testify v1.8.4
 - **Viper**: spf13/viper v1.16.0
@@ -24,20 +32,20 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **Paseto**: o1egl/paseto v1.0.0
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
 
-## ⚡ Acciones realizadas durante el proyecto:
-- [🗃️ Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
-- [🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
-
 ## Seccion 1
+- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
+- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
+- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
 
-### 🗃️ Trabajando con la DB [PostgreSQL + sqlc] 
+### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
+Se profundizo en el diseño de bases de datos, permitiendo modelar y gestionar datos de manera eficiente. Se interactuo con la base de datos utilizando transacciones y se comprendieron los niveles de aislamiento de la base de datos. Tambien se aprendió a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
 
 **1.** Esquema de la DB y relacion entre tablas
    - Crear una Account (Owner, Balance, Currency)
    - Registrar todos los cambios de balance en la cuenta (Entry)
    - Hacer transferencias de dinero entre 2 Accounts (Transfer)
-   <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/f0087f1e-ab3b-4532-a7bc-1a578c7c1e2c"/>
+
+   <img src="https://github.com/valrichter/basic-system-bank/assets/67121197/f0087f1e-ab3b-4532-a7bc-1a578c7c1e2c"/><br>
 
 **2.** Configuracion de imagen de PostgreSQL en Docker y creacion de la DB mediante un archivo *.sql*
    - Se agregaron indices (indexes) de los atributos mas importantes de cada tabla para mayor eficiencia a la hora de la busqueda
@@ -45,7 +53,8 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 **3.** Creacion de versiones de la DB. Configuracion golang-migrate para hacer migraciones
 s de la DB de una version a otra:
    - Se agrego un Makefile para mayor comodidad a la hora de ejecutar comandos necesarios
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f45876db-0fe9-4b3a-9e38-7256e346bb16"/>
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f45876db-0fe9-4b3a-9e38-7256e346bb16"/><br>
 
 **4.** Generacion de CRUD basico para las tablas Account, Entry & Transfer con sqlc. Configuracion de sqlc para hacer consultas SQL con codigo Go
    - Como funciona:
@@ -71,7 +80,8 @@ s de la DB de una version a otra:
    - La Transaccion A para finalizar necesita de la Data 2, la cual esta siendo usada (y por ende bloqueanda) por la Transaccion B
    - A su vez la Transaccion B para finalizar necesita de la Data 1 la cual esta siendo usada (y por ende bloqueanda) por la Transaccion A
    - Esto provoca el problema de Deadlock
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c4f841bd-2d33-4a91-b829-f4b39397b098"/> 
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c4f841bd-2d33-4a91-b829-f4b39397b098"/><br>
 
 **9.** Estudio de los distintos Insolation Levels en PostgreSQL:
 | Read Phenomena / Isonlation Levels ANSI | Read Uncommited | Read Commited | Repeatable Read | Serializable |
@@ -93,21 +103,27 @@ s de la DB de una version a otra:
    - Los ```Step``` son tareas individuales que se ejecutan en serie dentro de un Job
    - Un Step puede contener una o varias Actions que se ejecutan en serie
    - Una ```Action``` es un comando independiente y estas se pueden reutilizar. Por ej: ```actions/checkout@v4``` la cual verifica si nuestro codigo corre localmente
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c79b7e51-e376-4a0e-9831-4bd1a711ffc1"/>
 
-**Seccion 1.** Arquitectura de la aplicacion en la primer seccion
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c79b7e51-e376-4a0e-9831-4bd1a711ffc1"/><br>
+
+**Seccion 1:** Arquitectura de la aplicacion en la primer seccion
    - Resumen:
       - Modelado de los datos
       - EWjecucion en entorno local
       - Base de datos local (PostgreSQL docker)
       - Implementacion basica de CI
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/94e19962-d5f6-48c0-bddd-d74701b1b4dc"/>
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/94e19962-d5f6-48c0-bddd-d74701b1b4dc"/><br>
 
 ***
 
 ## Seccion 2
+- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
+- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
+- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
 
 ### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
+Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y se aplico autenticación de usuarios junto con la seguridad de las APIs con tokens JWT y PASETO.
 
 **1.** Implementacion de una RESTful HTTP API basico con el framework Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion con la respectiva validacion de los datos recibidos a traves de JSON
 
@@ -123,7 +139,8 @@ s de la DB de una version a otra:
 
 **5.** Cambio en la base de datos. 
    - Se agrego la tabla User para que cada usuario pueda tener distintas Accounts con diferentes Currency como ARS, UDS o EUR
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/54005e6b-ebad-4689-af1d-d1b602b25c9a"/>
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/54005e6b-ebad-4689-af1d-d1b602b25c9a"/><br>
 
 **6.** Implentacion y test de CRUD para la tabla Users, manejo de errores de PostgreSQL y fix de la API ```account.go``` para que funcione con la nueva tabla Users
 
@@ -140,7 +157,8 @@ s de la DB de una version a otra:
      - Luego mandara un access token
      - Luego si el cliente desea acceder a algun recurso lo hace utilizando el token en la solicitud
      - El servidor verifica el toke, si es valido autoriza la solicitud
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/07e1ed84-4838-4a4f-899f-2671aca1becd"/>
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/07e1ed84-4838-4a4f-899f-2671aca1becd"/><br>
 
 **10.** Creacion y verificacion de tokens de JWT y PASETO con sus respectivos tests
 
@@ -155,13 +173,18 @@ s de la DB de una version a otra:
       - Autenticaion de Users
       - Encriptacion de passwords
       - Database Mock Test
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f0991003-1fdc-4a26-bd85-87d0dc3ee534"/>
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f0991003-1fdc-4a26-bd85-87d0dc3ee534"/><br>
 
 ***
 
 ## Seccion 3
+- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
+- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
+- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
 
 ### ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
+Se amplio el conocimiento al de como construir y desplegar una aplicación en un cluster de Kubernetes en AWS. A través de guias detalladas, se comprendio como crear imágenes Docker eficientes, configurar bases de datos de produccion, gestionar secretos de manera segura, implementar Kubernetes con EKS.
 
 **1.** Se creo un archivo ```Dockerfile``` multietapa para crear una imagen mínima de Golang Docker que contenga solo el binario ejecutable de la app
    - Esto es util a la hora de correr una aplicacion de produccion en cualquier parte
@@ -175,7 +198,8 @@ s de la DB de una version a otra:
 
 **5.** Se automatizo la creacion y envío de la imagen de Docker a ```AWS ECR``` con Github Actions. Esto se configuro en el archivo ```github/workflow/deploy.yml```
    - Cada vez que se hace un nuevo pull a la rama main se crea y envia una nueva imagen de docker al repositorio de AWS ECR
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c38dd623-46cd-4c87-a247-6e9449e7abac"/>
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c38dd623-46cd-4c87-a247-6e9449e7abac"/><br>
 
 **6.** Configuracion de ```AWS RDS``` para levantar una PostgreSQL DB de produccion en la nube
 
@@ -184,6 +208,7 @@ s de la DB de una version a otra:
   - Se uso jq para poder extraer las variables de AWS Secrets Manager:
     - ```aws secretsmanager get-secret-value --secret-id go-basic-bank```
     - ```aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]'```
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/ff64d37b-760d-4f7d-bd00-17bf155884e7"/>
 
-**7.** Conpresion de la arquitectura de Kubernetes y cómo crear un clúster EKS en AWS y agregarle nodos trabajadores
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/ff64d37b-760d-4f7d-bd00-17bf155884e7"/><br>
+
+**7.** Comprecion de la arquitectura de Kubernetes y como crear un cluster EKS en AWS y agregarle nodos trabajadores
