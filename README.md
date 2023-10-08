@@ -25,12 +25,12 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
 
 ## ⚡ Acciones realizadas durante el proyecto:
-- 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
-- [🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#🧩-construccion-de-una-restful-http-json-api-[gin-+-jwt-+-paseto])
-- ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
-- [Sección 1](#sección-1)
-  
-   
+- [🗃️ Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
+- [🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
+- [☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+
+## Seccion 1
+
 ### 🗃️ Trabajando con la DB [PostgreSQL + sqlc] 
 
 **1.** Esquema de la DB y relacion entre tablas
@@ -95,7 +95,7 @@ s de la DB de una version a otra:
    - Una ```Action``` es un comando independiente y estas se pueden reutilizar. Por ej: ```actions/checkout@v4``` la cual verifica si nuestro codigo corre localmente
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/c79b7e51-e376-4a0e-9831-4bd1a711ffc1"/>
 
-**Etapa 1.** Arquitectura de la aplicacion en la primer etapa
+**Seccion 1.** Arquitectura de la aplicacion en la primer seccion
    - Resumen:
       - Modelado de los datos
       - EWjecucion en entorno local
@@ -105,7 +105,7 @@ s de la DB de una version a otra:
 
 ***
 
-## Sección 1
+## Seccion 2
 
 ### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
@@ -149,7 +149,7 @@ s de la DB de una version a otra:
 
 **12.** Implementacion de middleware de autenticación y reglas de autorización usando Gin. Permitiendo manejar errores de manera mas eficiente
 
-**Etapa 2.** Arquitectura de la aplicacion en la segunda etapa
+**Seccion 2.** Arquitectura de la aplicacion en la segunda seccion
    - Resumen:
       - Creacion de la API
       - Autenticaion de Users
@@ -158,6 +158,8 @@ s de la DB de una version a otra:
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/f0991003-1fdc-4a26-bd85-87d0dc3ee534"/>
 
 ***
+
+## Seccion 3
 
 ### ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
 
