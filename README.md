@@ -26,10 +26,12 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 
 ## ⚡ Acciones realizadas durante el proyecto:
 - 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
-- 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
+- [🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#🧩-construccion-de-una-restful-http-json-api-[gin-+-jwt-+-paseto])
 - ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
-
-### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
+- [Sección 1](#sección-1)
+  
+   
+### 🗃️ Trabajando con la DB [PostgreSQL + sqlc] 
 
 **1.** Esquema de la DB y relacion entre tablas
    - Crear una Account (Owner, Balance, Currency)
@@ -102,6 +104,8 @@ s de la DB de una version a otra:
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/94e19962-d5f6-48c0-bddd-d74701b1b4dc"/>
 
 ***
+
+## Sección 1
 
 ### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 
