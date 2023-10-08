@@ -11,8 +11,9 @@ La idea es cubrir las operaciones basicas de CRUD y la tranferencia de dinero en
 - **SQLC**: sqlc-dev/sqlc v1.21.0
 - **Migrate**: golang-migrate v4.16.2
 - **Make**: GNU Make v4.3
-- **AWS CLI**: aws-cli v2.13.24
 - **jq**: jq v1.6
+- **AWS CLI**: aws-cli v2.13.24
+- **AWS**: ECR, RDS, Secrets Manager, EKS
 
 ### 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
@@ -178,3 +179,5 @@ s de la DB de una version a otra:
     - ```aws secretsmanager get-secret-value --secret-id go-basic-bank```
     - ```aws secretsmanager get-secret-value --secret-id go-basic-bank --query SecretString --output text | jq -r 'to_entries|map("(.key)=(.value)")|.[]'```
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/ff64d37b-760d-4f7d-bd00-17bf155884e7"/>
+
+**7.** Conpresion de la arquitectura de Kubernetes y cómo crear un clúster EKS en AWS y agregarle nodos trabajadores
