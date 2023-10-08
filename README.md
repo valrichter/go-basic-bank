@@ -212,7 +212,7 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/ff64d37b-760d-4f7d-bd00-17bf155884e7"/><br>
 
-**7.** Comprecion de la arquitectura de Kubernetes y como crear un cluster EKS en AWS y agregarle nodos trabajadores
+**8.** Comprecion de la arquitectura de Kubernetes y como crear un cluster EKS en AWS y agregarle nodos trabajadores
 
-**6.** Utilizacion kubectl y k9s para conectarse a un cluster de Kubernetes en ```AWS EKS```
+**9.** Utilizacion kubectl y k9s para conectarse a un cluster de Kubernetes en ```AWS EKS```
    - Se le dio acceso a GitHub Actions al cluster de kubernetes AWS EKS mediante Kubectl para mas adelante poder crear un Continous Deployment (CD)
