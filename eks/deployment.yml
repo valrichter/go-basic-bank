@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-basic-bank-api-deployment
+  labels:
+    app: go-basic-bank-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-basic-bank-api
+  template:
+    metadata:
+      labels:
+        app: go-basic-bank-api
+    spec:
+      containers:
+        - name: go-basic-bank-api
+          image: 866424052258.dkr.ecr.sa-east-1.amazonaws.com/go-basic-bank:7d301af83eb69817dd95a6e0fce1c568533bdc1b
+          ports:
+            - containerPort: 8080
