@@ -1,5 +1,5 @@
 # <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go
-Se desarolla un servicio web backend para un banco simple. Se comprendio como diseñar, desarrollar e implementar un servicio web backend desde cero, proporcionando APIs para que el frontend realice las siguientes acciones:
+Se desarolla el servicio web backend de un banco simple. Se aprendio a como diseñar, desarrollar e implementar un servicio web backend desde cero, proporcionando APIs para que el frontend realice las siguientes acciones:
    1. Crear y gestionar cuentas bancarias.
    2. Registrar todos los cambios de saldo en cada una de las cuentas.
    3. Realizar una transferencia de dinero entre 2 cuentas.
