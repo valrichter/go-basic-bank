@@ -217,7 +217,7 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 **9.** Utilizacion kubectl y k9s para conectarse a un cluster de Kubernetes en ```AWS EKS```
    - Se le dio acceso a GitHub Actions al cluster de kubernetes AWS EKS mediante Kubectl para mas adelante poder crear un Continous Deployment (CD)
 
-**10.** Implementacion de una aplicación web en un cluster de Kubernetes en AWS EKS
-   - Se utilizo el deployment de Kubernetes junto con un servicio para exponer el app service al publico
+**10.** Deployment de una aplicación web en un cluster de Kubernetes en AWS EKS
+   - Se utilizo el deployment de Kubernetes junto con el servicio cloud AWS EKS para exponer el app service al publico
    - El ```deployment.yml``` se uso para configurar los pods
-   - El ```service.yml``` para exponer el container de la app al publico. Es decir, el servicio de API para que pueda consumirlo cualquiera
+   - El ```service.yml``` para exponer el container de la app al publico. Es decir, el servicio de API esta expuesto y corriendo en AWS para que pueda consumirlo cualquiera que lo desee
