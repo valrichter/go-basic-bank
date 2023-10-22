@@ -221,3 +221,6 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
    - Se utilizo Kubernetes para exponer la API bancaria al publico junto con el servicio cloud AWS EKS 
    - El ```deployment.yml``` se uso para configurar los pods
    - El ```service.yml``` para exponer el container de la app al publico. Es decir, el servicio de API esta expuesto y corriendo en AWS para que pueda consumirlo cualquiera que lo desee
+
+**11.** Se investigo como registrar un dominio y configurar A-record usando AWS Route53
+   - No se puedo implementar por falta de presupuesto (no tengo 12 USD para comprar "go-basic-bank.com")
