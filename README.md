@@ -218,6 +218,6 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
    - Se le dio acceso a GitHub Actions al cluster de kubernetes AWS EKS mediante Kubectl para mas adelante poder crear un Continous Deployment (CD)
 
 **10.** Deployment de una aplicación web en un cluster de Kubernetes en AWS EKS
-   - Se utilizo el deployment de Kubernetes junto con el servicio cloud AWS EKS para exponer el app service al publico
+   - Se utilizo Kubernetes para exponer la API bancaria al publico junto con el servicio cloud AWS EKS 
    - El ```deployment.yml``` se uso para configurar los pods
    - El ```service.yml``` para exponer el container de la app al publico. Es decir, el servicio de API esta expuesto y corriendo en AWS para que pueda consumirlo cualquiera que lo desee
