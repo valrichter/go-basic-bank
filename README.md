@@ -226,6 +226,9 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 **11.** Se investigo como registrar un dominio y configurar A-record usando AWS Route53
    - No se puedo implementar por falta de presupuesto (no tengo 12 USD para comprar "go-basic-bank.com")
 
-**12.** Se investigo usar el servicio Ingress para enrutar el trafico a diferentes servicios en Kubernetes con nginx ingress
+**12.** Se investigo como usar el servicio Ingress para enrutar el trafico a diferentes servicios en Kubernetes con nginx ingress
    - No se puedo implementar por falta de dominio (presuspuesto de 12 USD)
    - Solo que expueso la URL que proporciona el Load Blanacer (no es lo mejor, deberia exponerlo con un Ingress pero es lo que hay)
+
+**13.** Se investigo la emision automatica de certificados TLS en Kubernetes con Let's Encrypt
+   - No se pueod implementar, es necesario un servicio Ingress
