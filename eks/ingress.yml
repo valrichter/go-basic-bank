@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: nginx
+spec:
+  controller: k8s.io/ingress-nginx
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: go-basic-bank-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: "a1c50ac2fe5f14601873c5a346825413-1779397851.sa-east-1.elb.amazonaws.com"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: go-basic-bank-api-service
+                port:
+                  number: 80

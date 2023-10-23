@@ -190,7 +190,7 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 **1.** Se creo un archivo ```Dockerfile``` multietapa para crear una imagen mínima de Golang Docker que contenga solo el binario ejecutable de la app
    - Esto es util a la hora de correr una aplicacion de produccion en cualquier parte
 
-**2.** El que container la DB y el container de la APP, ambos, fueron conectados a una misma network para que puedan comunicarse entre containers
+**2.** El container de la DB y el container de la APP, ambos, fueron conectados a una misma network para que puedan comunicarse entre containers
 
 **3.** Configuracion de ```Docker-compose``` para inicializar los dos servicios (APP y DB), coordinarlos y controlar las órdenes de inicio del servicio
    - Esta parte requirio mucha investigacion sobre como funciona docker y docker-compose
@@ -218,9 +218,14 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
    - Se le dio acceso a GitHub Actions al cluster de kubernetes AWS EKS mediante Kubectl para mas adelante poder crear un Continous Deployment (CD)
 
 **10.** Deployment de una aplicación web en un cluster de Kubernetes en AWS EKS
-   - Se utilizo Kubernetes para exponer la API bancaria al publico junto con el servicio cloud AWS EKS 
+   - Se utilizo Kubernetes para exponer la API bancaria al publico junto con el servicio cloud AWS EKS
+   - La API esta expuesta a traves un servicio de LoadBalance de Kubernetes
    - El ```deployment.yml``` se uso para configurar los pods
    - El ```service.yml``` para exponer el container de la app al publico. Es decir, el servicio de API esta expuesto y corriendo en AWS para que pueda consumirlo cualquiera que lo desee
 
 **11.** Se investigo como registrar un dominio y configurar A-record usando AWS Route53
    - No se puedo implementar por falta de presupuesto (no tengo 12 USD para comprar "go-basic-bank.com")
+
+**12.** Se investigo usar el servicio Ingress para enrutar el trafico a diferentes servicios en Kubernetes con nginx ingress
+   - No se puedo implementar por falta de dominio (presuspuesto de 12 USD)
+   - Solo que expueso la URL que proporciona el Load Blanacer (no es lo mejor, deberia exponerlo con un Ingress pero es lo que hay)
