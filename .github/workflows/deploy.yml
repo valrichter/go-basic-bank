@@ -39,11 +39,14 @@ jobs:
           REPOSITORY: go-basic-bank
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -t latest .
-          docker push -a $REGISTRY/$REPOSITORY
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
+
+      - name: Update kubeconfig
+        run: aws eks update-kubeconfig --name go-basic-bank --region sa-east-1 
 
       - name: Deploy image to Amazon EKS
         run: |
-          kuberctl aplly - f eks/aws-auth.yml
-          kuberctl aplly - f eks/deployment.yml
-          kuberctl aplly - f eks/service.yml
+          kubectl aplly - f eks/aws-auth.yml
+          kubectl aplly - f eks/deployment.yml
+          kubectl aplly - f eks/service.yml
