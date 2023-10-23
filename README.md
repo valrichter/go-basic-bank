@@ -232,3 +232,6 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 
 **13.** Se investigo la emision automatica de certificados TLS en Kubernetes con Let's Encrypt
    - No se pueod implementar, es necesario un servicio Ingress
+
+**14.** Implementacion automatica en Kubernetes con Github Actio. Continous Deployment (CD)
+   - Se actualizo el archivo ```workflows/deploy.yml```
