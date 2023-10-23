@@ -9,20 +9,25 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 Se profundizo en el diseño de bases de datos, permitiendo modelar y gestionar datos de manera eficiente. Se interactuo con la base de datos utilizando transacciones y se comprendieron los niveles de aislamiento de la base de datos. Tambien se aprendió a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)  
 Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y se aplico autenticación de usuarios junto con la seguridad de las APIs con tokens JWT y PASETO.
-- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)  
-Se amplio el conocimiento al de como construir y desplegar una aplicación en un cluster de Kubernetes en AWS. A través de guias detalladas, se comprendio como crear imágenes Docker eficientes, configurar bases de datos de produccion, gestionar secretos de manera segura, implementar Kubernetes con EKS.
+- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)  
+Se amplio el conocimiento al de como construir y desplegar una aplicación en un cluster de Kubernetes en AWS. A través de guias detalladas, se comprendio como crear imágenes Docker eficientes, configurar bases de datos de produccion, gestionar secretos de manera segura, implementar Kubernetes con EKS, todo esto usando la nube de AWS y sus servicion como IAM, ECR, RDS, EKS, EC2 y Secrets Manager. Ademas se completo el ciclo de CI/CD usando GitHub Actions en conjunto con los manifiestos de Kubernetes.
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ## 🔨 Tecnologias usadas:
 - **PostgreSQL**: docker image postgres:15.4
 - **Docker**: docker v24.0.6
+- **Kubernetes:** Kubernetes v1.28.3
 - **Kubectl**: Kubectl Client Version: v1.28.2
+- **k9s CLI**: k9s v0.27.4
 - **CI**: GitHub Actions
 - **SQLC**: sqlc-dev/sqlc v1.21.0
 - **Migrate**: golang-migrate v4.16.2
 - **Make**: GNU Make v4.3
 - **jq**: jq v1.6
 - **AWS CLI**: aws-cli v2.13.24
-- **AWS**: ECR, RDS, Secrets Manager, EKS
+- **AWS**: IAM, ECR, RDS, EKS, EC2 y Secrets Manager
 
 ## 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
@@ -36,7 +41,10 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 ## Seccion 1
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
 Se profundizo en el diseño de bases de datos, permitiendo modelar y gestionar datos de manera eficiente. Se interactuo con la base de datos utilizando transacciones y se comprendieron los niveles de aislamiento de la base de datos. Tambien se aprendió a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
@@ -121,7 +129,10 @@ s de la DB de una version a otra:
 ## Seccion 2
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y se aplico autenticación de usuarios junto con la seguridad de las APIs con tokens JWT y PASETO.
@@ -182,7 +193,10 @@ Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio
 ## Seccion 3
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ 3. DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ### ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
 Se amplio el conocimiento al de como construir y desplegar una aplicación en un cluster de Kubernetes en AWS. A través de guias detalladas, se comprendio como crear imágenes Docker eficientes, configurar bases de datos de produccion, gestionar secretos de manera segura, implementar Kubernetes con EKS.
@@ -235,3 +249,24 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 
 **14.** Implementacion automatica en Kubernetes con Github Actio. Continous Deployment (CD)
    - Se actualizo el archivo ```workflows/deploy.yml```
+
+**Seccion 3.** Arquitectura de la aplicacion en la segunda seccion
+   - Resumen:
+      - Base de datos de produccion hosteada en AWS RDS
+      - Servicio de API bank hosteado en en AWS EKS
+      - Uso de Kubernetes para gestionar y aotumatizar el cluster con los containers
+      - CI/CD completo con GitHub Actions
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/6bc0504a-f9dd-49c1-9b0d-6aae630b8531"/><br>
+
+***
+
+## Seccion 4
+- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
+- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
+- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+
+### 🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]
