@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: go-basic-bank-api
-          image: 866424052258.dkr.ecr.sa-east-1.amazonaws.com/go-basic-bank:7d301af83eb69817dd95a6e0fce1c568533bdc1b
+          image: 866424052258.dkr.ecr.sa-east-1.amazonaws.com/go-basic-bank:latest
           ports:
             - containerPort: 8080
