@@ -4,9 +4,9 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
    2. Registrar todos los cambios de saldo en cada una de las cuentas.
    3. Realizar una transferencia de dinero entre 2 cuentas.
 
-## Como correr el rpoyecto localmente: (solucion temporal)
-- ```docker compose up -d```
-- [COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
+## Como correr el proyecto localmente: (solucion temporal)
+- Ejecutar el archivo de 'docker-compose.yml' que esta dentro del proyecto: ```docker compose up -d```
+- [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
 
 ## ⚡ Acciones realizadas durante el proyecto:
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
