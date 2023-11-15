@@ -8,6 +8,10 @@ jobs:
   deploy:
     name: Deployment local
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Ceckout code
+        uses: actions/checkout@v3
 # Deployment a AWS (se termino el free trail)
 # jobs:
 #   deploy:
