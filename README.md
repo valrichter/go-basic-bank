@@ -26,7 +26,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **PostgreSQL**: docker image postgres:15.4
 - **Docker**: docker v24.0.6
 - **Kubernetes:** Kubernetes v1.28.3
-- **Kubectl**: Kubectl Client Version: v1.28.2
+- **Kubectl**: Kubectl Client v1.28.2
 - **k9s CLI**: k9s v0.27.4
 - **CI-CD**: GitHub Actions
 - **SQLC**: sqlc-dev/sqlc v1.21.0
@@ -61,7 +61,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
     - [🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs \[Sessions + gRPC\]](#-backend-avanzado-con-gestión-de-sesiones-de-usuario-y-creacion-de-grpc-apis-sessions--grpc)
 
 ### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
-Se profundizo en el diseño de bases de datos, permitiendo modelar y gestionar datos de manera eficiente. Se interactuo con la base de datos utilizando transacciones y se comprendieron los niveles de aislamiento de la base de datos. Tambien se aprendió a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
+Profundicé en el diseño de bases de datos, lo que me permitió modelar y gestionar datos de manera eficiente. Interactué con la base de datos utilizando transacciones y comprendí los niveles de aislamiento de la base de datos. Además, aprendí a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
 
 **1.** Esquema de la DB y relacion entre tablas
    - Crear una Account (Owner, Balance, Currency)
@@ -156,7 +156,7 @@ s de la DB de una version a otra:
     - [🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs \[Sessions + gRPC\]](#-backend-avanzado-con-gestión-de-sesiones-de-usuario-y-creacion-de-grpc-apis-sessions--grpc)
 
 ### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
-Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y se aplico autenticación de usuarios junto con la seguridad de las APIs con tokens JWT y PASETO.
+Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
 
 **1.** Implementacion de una RESTful HTTP API basico con el framework Gin, configurancion del server y agregado de las funciones createAccount, getAccount by id y listAccount para listar cuentas mediante paginacion con la respectiva validacion de los datos recibidos a traves de JSON
 
@@ -227,7 +227,7 @@ Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio
     - [🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs \[Sessions + gRPC\]](#-backend-avanzado-con-gestión-de-sesiones-de-usuario-y-creacion-de-grpc-apis-sessions--grpc)
 
 ### ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
-Se amplio el conocimiento al de como construir y desplegar una aplicación en un cluster de Kubernetes en AWS. A través de guias detalladas, se comprendio como crear imágenes Docker eficientes, configurar bases de datos de produccion, gestionar secretos de manera segura, implementar Kubernetes con EKS.
+Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en un clúster de Kubernetes en AWS. A través de guías detalladas, comprendí cómo crear imágenes Docker eficientes, configurar bases de datos de producción, gestionar secretos de manera segura y llevar a cabo la implementación en Kubernetes con EKS.
 
 **1.** Se creo un archivo ```Dockerfile``` multietapa para crear una imagen mínima de Golang Docker que contenga solo el binario ejecutable de la app
    - Esto es util a la hora de correr una aplicacion de produccion en cualquier parte
