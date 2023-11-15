@@ -4,6 +4,10 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
    2. Registrar todos los cambios de saldo en cada una de las cuentas.
    3. Realizar una transferencia de dinero entre 2 cuentas.
 
+## Como correr el rpoyecto localmente: (solucion temporal)
+- ```docker compose up -d```
+- [COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
+
 ## ⚡ Acciones realizadas durante el proyecto:
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
 Se profundizo en el diseño de bases de datos, permitiendo modelar y gestionar datos de manera eficiente. Se interactuo con la base de datos utilizando transacciones y se comprendieron los niveles de aislamiento de la base de datos. Tambien se aprendió a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
@@ -39,12 +43,19 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
 
 ## Seccion 1
-- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
-- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
-- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
-- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
-- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+- [ Proyecto extenso de Backend con Go](#-proyecto-extenso-de-backend-con-go)
+  - [Como correr el rpoyecto localmente: (solucion temporal)](#como-correr-el-rpoyecto-localmente-solucion-temporal)
+  - [⚡ Acciones realizadas durante el proyecto:](#-acciones-realizadas-durante-el-proyecto)
+  - [🔨 Tecnologias usadas:](#-tecnologias-usadas)
+  - [📦 Herramietas:](#-herramietas)
+  - [Seccion 1](#seccion-1)
+    - [🗃️ Trabajando con la DB \[PostgreSQL + sqlc\]](#️-trabajando-con-la-db-postgresql--sqlc)
+  - [Seccion 2](#seccion-2)
+    - [🧩 Construccion de una RESTful HTTP JSON API \[Gin + JWT + PASETO\]](#-construccion-de-una-restful-http-json-api-gin--jwt--paseto)
+  - [Seccion 3](#seccion-3)
+    - [☁️ DevOps: Deployar la aplicacion a produccion \[Docker + Kubernetes + AWS\]](#️-devops-deployar-la-aplicacion-a-produccion-docker--kubernetes--aws)
+  - [Seccion 4](#seccion-4)
+    - [🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs \[Sessions + gRPC\]](#-backend-avanzado-con-gestión-de-sesiones-de-usuario-y-creacion-de-grpc-apis-sessions--grpc)
 
 ### 🗃️ Trabajando con la DB [PostgreSQL + sqlc]
 Se profundizo en el diseño de bases de datos, permitiendo modelar y gestionar datos de manera eficiente. Se interactuo con la base de datos utilizando transacciones y se comprendieron los niveles de aislamiento de la base de datos. Tambien se aprendió a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
@@ -127,12 +138,19 @@ s de la DB de una version a otra:
 ***
 
 ## Seccion 2
-- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
-- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
-- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
-- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
-- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+- [ Proyecto extenso de Backend con Go](#-proyecto-extenso-de-backend-con-go)
+  - [Como correr el rpoyecto localmente: (solucion temporal)](#como-correr-el-rpoyecto-localmente-solucion-temporal)
+  - [⚡ Acciones realizadas durante el proyecto:](#-acciones-realizadas-durante-el-proyecto)
+  - [🔨 Tecnologias usadas:](#-tecnologias-usadas)
+  - [📦 Herramietas:](#-herramietas)
+  - [Seccion 1](#seccion-1)
+    - [🗃️ Trabajando con la DB \[PostgreSQL + sqlc\]](#️-trabajando-con-la-db-postgresql--sqlc)
+  - [Seccion 2](#seccion-2)
+    - [🧩 Construccion de una RESTful HTTP JSON API \[Gin + JWT + PASETO\]](#-construccion-de-una-restful-http-json-api-gin--jwt--paseto)
+  - [Seccion 3](#seccion-3)
+    - [☁️ DevOps: Deployar la aplicacion a produccion \[Docker + Kubernetes + AWS\]](#️-devops-deployar-la-aplicacion-a-produccion-docker--kubernetes--aws)
+  - [Seccion 4](#seccion-4)
+    - [🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs \[Sessions + gRPC\]](#-backend-avanzado-con-gestión-de-sesiones-de-usuario-y-creacion-de-grpc-apis-sessions--grpc)
 
 ### 🧩 Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]
 Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y se aplico autenticación de usuarios junto con la seguridad de las APIs con tokens JWT y PASETO.
@@ -191,12 +209,19 @@ Se desarrollo una RESTful APIs utilizando el framework Gin en Golang. Se apredio
 ***
 
 ## Seccion 3
-- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
-- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
-- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
-- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
-- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+- [ Proyecto extenso de Backend con Go](#-proyecto-extenso-de-backend-con-go)
+  - [Como correr el rpoyecto localmente: (solucion temporal)](#como-correr-el-rpoyecto-localmente-solucion-temporal)
+  - [⚡ Acciones realizadas durante el proyecto:](#-acciones-realizadas-durante-el-proyecto)
+  - [🔨 Tecnologias usadas:](#-tecnologias-usadas)
+  - [📦 Herramietas:](#-herramietas)
+  - [Seccion 1](#seccion-1)
+    - [🗃️ Trabajando con la DB \[PostgreSQL + sqlc\]](#️-trabajando-con-la-db-postgresql--sqlc)
+  - [Seccion 2](#seccion-2)
+    - [🧩 Construccion de una RESTful HTTP JSON API \[Gin + JWT + PASETO\]](#-construccion-de-una-restful-http-json-api-gin--jwt--paseto)
+  - [Seccion 3](#seccion-3)
+    - [☁️ DevOps: Deployar la aplicacion a produccion \[Docker + Kubernetes + AWS\]](#️-devops-deployar-la-aplicacion-a-produccion-docker--kubernetes--aws)
+  - [Seccion 4](#seccion-4)
+    - [🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs \[Sessions + gRPC\]](#-backend-avanzado-con-gestión-de-sesiones-de-usuario-y-creacion-de-grpc-apis-sessions--grpc)
 
 ### ☁️ DevOps: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]
 Se amplio el conocimiento al de como construir y desplegar una aplicación en un cluster de Kubernetes en AWS. A través de guias detalladas, se comprendio como crear imágenes Docker eficientes, configurar bases de datos de produccion, gestionar secretos de manera segura, implementar Kubernetes con EKS.
@@ -262,11 +287,18 @@ Se amplio el conocimiento al de como construir y desplegar una aplicación en un
 ***
 
 ## Seccion 4
-- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
-- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
-- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
-- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
-- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
-- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+- [ Proyecto extenso de Backend con Go](#-proyecto-extenso-de-backend-con-go)
+  - [Como correr el rpoyecto localmente: (solucion temporal)](#como-correr-el-rpoyecto-localmente-solucion-temporal)
+  - [⚡ Acciones realizadas durante el proyecto:](#-acciones-realizadas-durante-el-proyecto)
+  - [🔨 Tecnologias usadas:](#-tecnologias-usadas)
+  - [📦 Herramietas:](#-herramietas)
+  - [Seccion 1](#seccion-1)
+    - [🗃️ Trabajando con la DB \[PostgreSQL + sqlc\]](#️-trabajando-con-la-db-postgresql--sqlc)
+  - [Seccion 2](#seccion-2)
+    - [🧩 Construccion de una RESTful HTTP JSON API \[Gin + JWT + PASETO\]](#-construccion-de-una-restful-http-json-api-gin--jwt--paseto)
+  - [Seccion 3](#seccion-3)
+    - [☁️ DevOps: Deployar la aplicacion a produccion \[Docker + Kubernetes + AWS\]](#️-devops-deployar-la-aplicacion-a-produccion-docker--kubernetes--aws)
+  - [Seccion 4](#seccion-4)
+    - [🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs \[Sessions + gRPC\]](#-backend-avanzado-con-gestión-de-sesiones-de-usuario-y-creacion-de-grpc-apis-sessions--grpc)
 
 ### 🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]
