@@ -8,10 +8,9 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 - Ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto: ```docker compose up -d```
 - [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
 - [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
-
-## ⚡ Acciones realizadas durante el proyecto:
 - Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
 
+## ⚡ Acciones realizadas durante el proyecto:
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
 Profundicé en el diseño de bases de datos, lo que me permitió modelar y gestionar datos de manera eficiente. Interactué con la base de datos utilizando transacciones y comprendí los niveles de aislamiento de la base de datos. Además, aprendí a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)  
@@ -37,6 +36,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **jq**: jq v1.6
 - **AWS CLI**: aws-cli v2.13.24
 - **AWS**: IAM, ECR, RDS, EKS, EC2 y Secrets Manager
+- **dbdocs**: dbdocs.io
 
 ## 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
