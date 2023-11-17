@@ -7,6 +7,7 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 ## Como correr el proyecto localmente: (solucion temporal)
 - Ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto: ```docker compose up -d```
 - [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
+- [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
 
 ## ⚡ Acciones realizadas durante el proyecto:
 - Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
@@ -287,4 +288,4 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 
 **2.** Generacion de una página de documentación de base de datos SQL desde DBML con la CLI de dbdiagram.io
    - Se automatizo la generacion de la documentacion de la base de datos
-   - DB DOCUMENTACION: https://dbdocs.io/valrichter/go_basic_bank PASSWORD: secret
+   - [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
