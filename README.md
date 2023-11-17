@@ -280,4 +280,6 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 
 ### 🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]
 **1.** Como gestionar automaticamente la sesion del usuario con el token de actualizacion
-   - Token mas longevo (1 a 7 dias) para una buena expreicnia de usuario. Campo boolean agregado a la DB para poder revocar el token en caso de filtraciopn
+   - Se agrego un token de acceso para que la sesion dure 1 dia
+   - Tambien se agrego la tabal de Session para llevar un regitro de las sesiones inciadas
+   - Todas las seciones son temporales pero es posible renovar su logevidad mediante el endpoint ```/tokens/renew_access```
