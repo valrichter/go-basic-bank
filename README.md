@@ -5,18 +5,18 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
    3. Realizar una transferencia de dinero entre 2 cuentas.
 
 ## Como correr el proyecto localmente: (solucion temporal)
-- Ejecutar el archivo de 'docker-compose.yml' que esta dentro del proyecto: ```docker compose up -d```
+- Ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto: ```docker compose up -d```
 - [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
 
 ## ⚡ Acciones realizadas durante el proyecto:
+- Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
+
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
 Profundicé en el diseño de bases de datos, lo que me permitió modelar y gestionar datos de manera eficiente. Interactué con la base de datos utilizando transacciones y comprendí los niveles de aislamiento de la base de datos. Además, aprendí a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)  
 Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
 - [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)  
 Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en un clúster de Kubernetes en AWS. A través de guías detalladas, comprendí cómo crear imágenes Docker eficientes, configurar bases de datos de producción, gestionar secretos de manera segura y llevar a cabo la implementación en Kubernetes con EKS.
-
-- Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions 
 
 - [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
 - [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
@@ -282,4 +282,9 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **1.** Como gestionar automaticamente la sesion del usuario con el token de actualizacion
    - Se agrego un token de acceso para que la sesion dure 1 dia
    - Tambien se agrego la tabal de Session para llevar un regitro de las sesiones inciadas
-   - Todas las seciones son temporales pero es posible renovar su logevidad mediante el endpoint ```/tokens/renew_access```
+   - Todas las sesiones son temporales pero es posible renovar su logevidad mediante el endpoint ```/tokens/renew_access```
+   - Se fixeo el docker compose
+
+**2.** Generacion de una página de documentación de base de datos SQL desde DBML con la CLI de dbdiagram.io
+   - Se automatizo la generacion de la documentacion de la base de datos
+   - DB DOCUMENTACION: https://dbdocs.io/valrichter/go_basic_bank PASSWORD: secret
