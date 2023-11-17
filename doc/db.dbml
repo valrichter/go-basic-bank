@@ -1,0 +1,72 @@
+Project go_basic_bank {
+  database_type: 'PostgreSQL'
+  Note: '''
+    # go-basic-bank Database
+  '''
+}
+
+// Usuarios registrados
+Table users as U {
+  username varchar [pk]
+  hashed_password varchar [not null]
+  full_name varchar [not null]
+  email varchar [unique, not null]
+  password_chaged_at timestamptz [not null, default: '0001-01-01 00:00:00Z']
+  created_at timestamptz [not null, default: `now ()`]
+}
+
+// Cuentas de los usuarios
+Table account as A {
+id bigserial [pk] // auto-increment
+owner varchar [ref: > U.username,                                   not null]
+balance real [not null]
+currency varchar [not null]
+created_at timestamptz [not null, default: `now()`]
+
+// Deseamos buscar cuentas por propietario
+Indexes {
+  owner
+  (owner, currency) [unique]
+}
+}
+
+// Historial de cambios del saldo
+Table entry {
+  id bigserial [pk]
+  account_id bigint [not null, ref: > A.id] // many to one
+  amount real [not null, note: 'can be negative or positive']
+  created_at timestamptz [not null, default: `now()`]
+
+// Deseamos enumerar los cambios de una cuenta
+Indexes {
+  account_id
+}
+}
+
+// Las tranferencias de dinero entre 2 cuentas
+Table transfer {
+  id bigserial [pk]
+  from_account_id bigint [not null, ref: > A.id]
+  to_account_id bigint [not null, ref: > A.id]
+  amount real [not null, note: 'must be positive']
+  created_at timestamptz [not null, default: `now()`]
+
+// Deseamos buscar todas la transferencias
+// que salen o entran de un cuenta
+Indexes {
+  from_account_id
+  to_account_id
+  (from_account_id, to_account_id)
+}
+}
+
+Table sessions {
+  id uuid [pk]
+  username varchar [ref: > U.username, not null]
+  refresh_token varchar [not null]
+  user_agent varchar [not null]
+  client_ip varchar [not null]
+  is_blocked boolean [not null, default: false]
+  expires_at timestamptz [not null]
+  created_at timestamptz [not null, default: `now()`]
+}
