@@ -1,4 +1,4 @@
-# <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="30" /> Proyecto extenso de Backend con Go
+# <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="40" /> Proyecto extenso de Backend con Go
 Se desarolla el servicio web backend basico de un banco. Se aprendio a como diseñar, desarrollar e implementar un servicio web backend desde cero, proporcionando APIs para que el frontend realice las siguientes acciones:
    1. Crear y gestionar cuentas bancarias.
    2. Registrar todos los cambios de saldo en cada una de las cuentas.
@@ -23,6 +23,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ## 🔨 Tecnologias usadas:
+- **Go**: go version go1.21.1 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
 - **Docker**: docker v24.0.6
 - **Kubernetes:** Kubernetes v1.28.3
@@ -278,3 +279,5 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ### 🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]
+**1.** Como gestionar automaticamente la sesion del usuario con el token de actualizacion
+   - Token mas longevo (1 a 7 dias) para una buena expreicnia de usuario. Campo boolean agregado a la DB para poder revocar el token en caso de filtraciopn
