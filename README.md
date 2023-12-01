@@ -295,7 +295,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
    - [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
 
 **3.** Introducción a gRPC, como funcioona y porque es mejor que HTTP a la hora de comunicar APIs
-   - Remote procedure call framework:
+   - Remote procedure call framework (RPC):
       - El cliente puede ejecutar un procedimiento remoto en el servidor
       - La interaccion de codigo remota is manejada por gRPC
       - El código de la API y de la estructura de datos se genera automáticamente mideante Protocol Buffer Compiler

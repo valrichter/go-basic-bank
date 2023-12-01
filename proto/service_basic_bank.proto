@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pb;
+
+import "user.proto";
+import "rcp_create_user.proto";
+
+option go_package = "github.com/valrichter/go-basic-bank/pb";
+
+service BasicBank {
+	rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+}
