@@ -319,3 +319,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
    - Escribir codigo una vez, servir gRPC & HTTP requests  
 
 ![39](https://github.com/valrichter/go-basic-bank/assets/67121197/27812da8-fde5-4d16-a773-37d7856c7a2c)
+
+**4.** Defini la API gRPC y genere codigo Go con protobuf
+   - Se escribio una definicion de protobuf para un servicio API de gRPC
+   - Se genero codigo de Go a partir de dicha definicio
