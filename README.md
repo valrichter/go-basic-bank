@@ -5,13 +5,13 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
    3. Realizar una transferencia de dinero entre 2 cuentas.
 
 ## Como correr el proyecto localmente: (solucion temporal)
-- Ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto:
+1. Para levantar los servicios ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto con el siguiente comando
 ```bash
    docker compose up -d
 ```
-- [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
-- [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
-- Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
+2. Pruebe los endpoints del servicio con Postman: [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
+3. Informacion de como es la arquitectura de la app: [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
+4. Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
 
 ## ⚡ Acciones realizadas durante el proyecto:
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
