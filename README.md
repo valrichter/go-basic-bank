@@ -293,3 +293,27 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **2.** Generacion de una página de documentación de base de datos SQL desde DBML con la CLI de dbdiagram.io
    - Se automatizo la generacion de la documentacion de la base de datos
    - [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
+
+**3.** Introducción a gRPC, como funcioona y porque es mejor que HTTP a la hora de comunicar APIs
+   - Remote procedure call framework:
+      - El cliente puede ejecutar un procedimiento remoto en el servidor
+      - La interaccion de codigo remota is manejada por gRPC
+      - El código de la API y de la estructura de datos se genera automáticamente mideante Protocol Buffer Compiler
+      - Soporta múltiples lenguajes de programación
+   - Como funciona:
+      1. Definimos la API RPC y su estructura request/respponse usando Protocol Buffer
+      2. Generar gRPC stubs, generar codigo de servidor y cliente en el leguaje que se quiera
+      3. Implemetar el RPC handler en el server
+      4. Usar el cleint stubs generado para llamar al RPC del server
+   - 4 tipos de gRPC:
+      - Unary gRPC
+      - Client streaming gRPC
+      - Server streaming gRPC
+      - Bidirectional streaming gRPC
+   - gRPC gateway, ateneder solicitudes HTTP JSON y gRPC al mismo tiempo:
+      - Un plugin de protobuf compiler
+      - Genera proxy codes de protobuf
+      - Traduce llamadas HTTP JSON a gRPC
+         - In-process transaltion: only for uniary gRPC
+         - Separate proxy server: both unary and streaming gRPC
+      - Escribir codigo una vez, servir gRPC & HTTP requests 
