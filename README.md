@@ -49,6 +49,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **JWT**: golang-jwt/jwt v3.2.2+incompatible
 - **Paseto**: o1egl/paseto v1.0.0
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
+- **gRPC**: libprotoc v3.12.4
 
 ## Seccion 1
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
