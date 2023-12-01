@@ -316,4 +316,6 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
       - Traduce llamadas HTTP JSON a gRPC
          - In-process transaltion: only for uniary gRPC
          - Separate proxy server: both unary and streaming gRPC
-      - Escribir codigo una vez, servir gRPC & HTTP requests 
+   - Escribir codigo una vez, servir gRPC & HTTP requests  
+
+![39](https://github.com/valrichter/go-basic-bank/assets/67121197/27812da8-fde5-4d16-a773-37d7856c7a2c)
