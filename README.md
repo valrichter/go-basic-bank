@@ -324,3 +324,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **4.** Defini la API gRPC y genere codigo Go con protobuf
    - Se escribio una definicion de protobuf para un servicio API de gRPC
    - Se genero codigo de Go a partir de dicha definicio
+
+**5.** Ejecutar un servidor golang gRPC y llamar a su gRPCAPI
+   - Se inicializo un server con el codigo generado por protobuf
+   - Se corrio la api y me conecte mediante la tool Evans (el Postman de gRPC)
