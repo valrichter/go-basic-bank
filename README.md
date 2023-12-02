@@ -40,6 +40,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **AWS CLI**: aws-cli v2.13.24
 - **AWS**: IAM, ECR, RDS, EKS, EC2 y Secrets Manager
 - **dbdocs**: dbdocs.io
+- **Evans**: evans v0.10.11
 
 ## 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
