@@ -5,11 +5,11 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
    3. Realizar una transferencia de dinero entre 2 cuentas.
 
 ## Como correr el proyecto localmente: (solucion temporal)
-1. Para levantar los servicios ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto con el siguiente comando
+1. Para levantar los servicios ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto con el siguiente comando (por el momento solo levanta la HTTP API)
 ```bash
    docker compose up -d
 ```
-2. Pruebe los endpoints del servicio con Postman: [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
+2. Pruebe los endpoints del servicio HTTP con Postman: [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
 3. Informacion de como es la arquitectura de la app: [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
 4. Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
 
@@ -329,3 +329,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **5.** Ejecutar un servidor golang gRPC y llamar a su gRPCAPI
    - Se inicializo un server con el codigo generado por protobuf
    - Se corrio la api y me conecte mediante la tool Evans (el Postman de gRPC)
+
+**6.**  Implemente la API gRPC para crear e iniciar sesión usuarios en Go
+   - Se implemento la API de gRPC para crear e iniciar sesion de usuarios
+   - ```gapi/rpc_create_user.go``` & ```gapi/rpc_login_user.go```
