@@ -40,8 +40,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **AWS CLI**: aws-cli v2.13.24
 - **AWS**: IAM, ECR, RDS, EKS, EC2 y Secrets Manager
 - **dbdocs**: dbdocs.io
-- **Postman**: HTTP Client
-- **Evans**: gRPC Client 
+- **Postman**: HTTP & gRPC Client
 
 ## 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
@@ -331,6 +330,12 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
    - Se inicializo un server con el codigo generado por protobuf
    - Se corrio la api y me conecte mediante la tool Evans (el Postman de gRPC)
 
-**6.**  Implemente la API gRPC para crear e iniciar sesión usuarios en Go
+**6.** Implemente la API gRPC para crear e iniciar sesión usuarios en Go
    - Se implemento la API de gRPC para crear e iniciar sesion de usuarios
    - ```gapi/rpc_create_user.go``` & ```gapi/rpc_login_user.go```
+
+**7.** gRPC Gateway: escribir el codigo una vez y luego recibir solicitudes gRPC y HTTP
+   - Se implemento la gRPC Gateway para poder recibir solicitudes gRPC y HTTP
+   - Bascamente se escribi el codigo una sola vez en el server
+   - Se usaron api de google
+   - Para mas informacion mirar el grafico del punto 3
