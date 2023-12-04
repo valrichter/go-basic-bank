@@ -26,7 +26,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ## 🔨 Tecnologias usadas:
-- **Go**: go version go1.21.1 linux/amd64
+- **Go**: go version go1.21.4 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
 - **Docker**: docker v24.0.6
 - **Kubernetes:** Kubernetes v1.28.3
@@ -40,7 +40,8 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **AWS CLI**: aws-cli v2.13.24
 - **AWS**: IAM, ECR, RDS, EKS, EC2 y Secrets Manager
 - **dbdocs**: dbdocs.io
-- **Evans**: evans v0.10.11
+- **Postman**: HTTP Client
+- **Evans**: gRPC Client 
 
 ## 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
