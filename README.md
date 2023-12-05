@@ -339,3 +339,5 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
    - Bascamente se escribi el codigo una sola vez en el server
    - Se usaron api de google
    - Para mas informacion mirar el grafico del punto 3
+
+**8.** Como extraer informacion de los metadatos de gRPC
