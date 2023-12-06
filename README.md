@@ -341,3 +341,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
    - Para mas informacion mirar el grafico del punto 3
 
 **8.** Como extraer informacion de los metadatos de gRPC
+   - Se implemento la API de gRPC para extraer informacion de los metadatos de gRPC
+   
+**9.** Generar y servir automáticamente documentos Swagger desde el servidor Go
+   - Se implemento ducumentacion de la API gRPC + HTTP mediante la libreria swagger-ui
