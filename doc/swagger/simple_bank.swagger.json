@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Basic Bank",
-    "version": "1.0",
+    "version": "1.1",
     "contact": {
       "name": "valrichter",
       "url": "https://github.com/valrichter",
@@ -23,6 +23,8 @@
   "paths": {
     "/v1/create_user": {
       "post": {
+        "summary": "Gateway: Create a new User",
+        "description": "Use this API to Create a new User",
         "operationId": "BasicBank_CreateUser",
         "responses": {
           "200": {
@@ -55,6 +57,8 @@
     },
     "/v1/login_user": {
       "post": {
+        "summary": "Gateway: Login a User",
+        "description": "Use this API to Login a User and get access token \u0026 refresh token",
         "operationId": "BasicBank_LoginUser",
         "responses": {
           "200": {

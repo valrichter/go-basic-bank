@@ -345,3 +345,8 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
    
 **9.** Generar y servir automáticamente documentos Swagger desde el servidor Go
    - Se implemento ducumentacion de la API gRPC + HTTP mediante la libreria swagger-ui
+
+**10.** Incrustar archivos frontend estaticos dentro del binario del servidor backend de Golang
+   - Usando la libreria de embedded de Go incrustamos el codigo JS de Swagger en el mismo binario del servidor backend
+   - La ventaja de estar embebido en en el binario es que ahora corre en memoria RAM y no en disco
+   - ```//go:embed doc/swagger```

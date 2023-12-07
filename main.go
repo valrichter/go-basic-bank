@@ -3,6 +3,9 @@ package main
 import (
 	"context"
 	"database/sql"
+	"embed"
+	"fmt"
+	"io/fs"
 	"log"
 	"net"
 	"net/http"
@@ -57,6 +60,13 @@ func runGRPCServer(config util.Config, store db.Store) {
 	}
 }
 
+var (
+	//go:embed doc/swagger
+	swagger embed.FS
+	//TODO: fix swaggerFS se guarda en la memoeria loca el primer estado registrado, por lo que no se actualiza cuando se modifica la documentacion
+	swaggerFS, _ = fs.Sub(swagger, "doc/swagger")
+)
+
 func runGatewayServer(config util.Config, store db.Store) {
 	server, err := gapi.NewServer(config, store)
 	if err != nil {
@@ -75,8 +85,14 @@ func runGatewayServer(config util.Config, store db.Store) {
 	mux := http.NewServeMux()
 	mux.Handle("/", grpcMux)
 
-	fs := http.FileServer(http.Dir("./doc/swagger"))
-	mux.Handle("/swagger/", http.StripPrefix("/swagger/", fs))
+	swaggerFileServer := http.FileServer(http.FS(swaggerFS))
+	swaggerHandler := http.StripPrefix("/swagger/", swaggerFileServer)
+	mux.Handle("/swagger/", swaggerHandler)
+
+	fs.WalkDir(swaggerFS, ".", func(path string, d fs.DirEntry, err error) error {
+		fmt.Println(path)
+		return nil
+	})
 
 	listener, err := net.Listen("tcp", config.HTTPServerAddress)
 	if err != nil {
