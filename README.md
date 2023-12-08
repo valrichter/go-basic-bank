@@ -349,4 +349,9 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **10.** Incrustar archivos frontend estaticos dentro del binario del servidor backend de Golang
    - Usando la libreria de embedded de Go incrustamos el codigo JS de Swagger en el mismo binario del servidor backend
    - La ventaja de estar embebido en en el binario es que ahora corre en memoria RAM y no en disco
-   - ```//go:embed doc/swagger```
+   - ```//go:embed doc/swagger``` ```//localhost:8080/swagger```
+
+**11.** Valide los parámetros de gRPC y envíe una respuesta amigable para humanos y máquinas
+   - Se validaron los parámetros de gRPC Gateway y se envio una respuesta amigable para humanos y máquinas
+   - ```gapi/rpc_create_user.go``` & ```gapi/rpc_login_user.go```
+   - Se hizo una manejo de error para los parámetros de gRPC y se envio una respuesta amigable para humanos y máquinas

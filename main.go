@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql"
 	"embed"
-	"fmt"
 	"io/fs"
 	"log"
 	"net"
@@ -89,10 +88,10 @@ func runGatewayServer(config util.Config, store db.Store) {
 	swaggerHandler := http.StripPrefix("/swagger/", swaggerFileServer)
 	mux.Handle("/swagger/", swaggerHandler)
 
-	fs.WalkDir(swaggerFS, ".", func(path string, d fs.DirEntry, err error) error {
-		fmt.Println(path)
-		return nil
-	})
+	// fs.WalkDir(swaggerFS, ".", func(path string, d fs.DirEntry, err error) error {
+	// 	fmt.Println(path)
+	// 	return nil
+	// })
 
 	listener, err := net.Listen("tcp", config.HTTPServerAddress)
 	if err != nil {
