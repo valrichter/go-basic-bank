@@ -34,13 +34,12 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **k9s CLI**: k9s v0.27.4
 - **CI-CD**: GitHub Actions
 - **SQLC**: sqlc-dev/sqlc v1.21.0
-- **Migrate**: golang-migrate v4.16.2
 - **Make**: GNU Make v4.3
 - **jq**: jq v1.6
-- **AWS CLI**: aws-cli v2.13.24
 - **AWS**: IAM, ECR, RDS, EKS, EC2 y Secrets Manager
+- **AWS CLI**: aws-cli v2.13.24
 - **dbdocs**: dbdocs.io
-- **Postman**: HTTP & gRPC Client
+- **Postman**: HTTP, gRPC & gRPC gateway client
 
 ## 📦 Herramietas:
 - **Gin**: gin-gonic/gin v1.9.1
@@ -51,6 +50,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - **Paseto**: o1egl/paseto v1.0.0
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
 - **gRPC**: libprotoc v3.12.4
+- **Migrate**: golang-migrate v4.16.2
 
 ## Seccion 1
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
@@ -355,3 +355,6 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
    - Se validaron los parámetros de gRPC Gateway y se envio una respuesta amigable para humanos y máquinas
    - ```gapi/rpc_create_user.go``` & ```gapi/rpc_login_user.go```
    - Se hizo una manejo de error para los parámetros de gRPC y se envio una respuesta amigable para humanos y máquinas
+
+**12.** Ejecute migraciones de las bases de datos directamente dentro del codigo Go
+   - Se implemento la migración de la base de datos directamente con el package ```golang-migrate```
