@@ -358,3 +358,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 
 **12.** Ejecute migraciones de las bases de datos directamente dentro del codigo Go
    - Se implemento la migración de la base de datos directamente con el package ```golang-migrate```
+
+**13.** de actualización parcial del registro en la DB con parámetros SQLC que ahora aceptan valores NULL
+   - Se implemento funcionalidades de SQLC para que ahora las columnas acepten valores NULL
+   - Ahora el ususario puede actualizar sus datos en la DB como su username, email y password
