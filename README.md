@@ -365,4 +365,6 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 
 **14.** Se implemento la gAPI de updateUser de gRPC con parametros opcionales
    - El usuario puede actualizar sus datos en la DB como su fullname, email y password
-   
+
+**15.** Se agrego la autorizacion de Usuarios para proteger la gAPI de UpdateUser
+   - El usuario puede actualizar sus datos en la DB como su fullname, email y password pero se requiere de una autorizacion de usuario para poder hacerlo
