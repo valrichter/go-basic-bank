@@ -369,4 +369,6 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **15.** Se agrego la autorizacion de Usuarios para proteger la gAPI de UpdateUser
    - El usuario puede actualizar sus datos en la DB como su fullname, email y password pero se requiere de una autorizacion de usuario para poder hacerlo
 
-**16.** Escribi logs de las solicitudes y respuestas estructurados para las API de gRPC utilizado zerolog
+**16.** Desarolle mejores logs para las gRPC APIs utilizado zerolog
+
+**17.** Implementacion de un middleware de de logs para las solicitudes de las HTTP APIs (implementado en la Gateway de gRPC)
