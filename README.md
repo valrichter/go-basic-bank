@@ -362,3 +362,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **13.** de actualización parcial del registro en la DB con parámetros SQLC que ahora aceptan valores NULL
    - Se implemento funcionalidades de SQLC para que ahora las columnas acepten valores NULL
    - Ahora el ususario puede actualizar sus datos en la DB como su username, email y password
+
+**14.** Se implemento la gAPI de updateUser de gRPC con parametros opcionales
+   - El usuario puede actualizar sus datos en la DB como su fullname, email y password
+   

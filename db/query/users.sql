@@ -7,7 +7,8 @@ INSERT INTO
         full_name,
         email
     )
-VALUES ($1, $2, $3, $4) RETURNING *;
+VALUES ($1, $2, $3, $4)
+RETURNING *;
 
 -- name: GetUser :one
 
@@ -21,10 +22,15 @@ SET
         sqlc.narg('hashed_password'),
         hashed_password
     ),
+    password_chaged_at = coalesce(
+        sqlc.narg('password_chaged_at'),
+        password_chaged_at
+    ),
     full_name = coalesce(
         sqlc.narg('full_name'),
         full_name
     ),
     email = coalesce(sqlc.narg('email'), email)
 WHERE
-    username = sqlc.arg('username') RETURNING *;
+    username = sqlc.arg('username')
+RETURNING *;
