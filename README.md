@@ -16,14 +16,19 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 ## ⚡ Acciones realizadas durante el proyecto:
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
 Profundicé en el diseño de bases de datos, lo que me permitió modelar y gestionar datos de manera eficiente. Interactué con la base de datos utilizando transacciones y comprendí los niveles de aislamiento de la base de datos. Además, aprendí a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
+
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)  
 Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
+
 - [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)  
 Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en un clúster de Kubernetes en AWS. A través de guías detalladas, comprendí cómo crear imágenes Docker eficientes, configurar bases de datos de producción, gestionar secretos de manera segura y llevar a cabo la implementación en Kubernetes con EKS.
 
-- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)  
+Trabaje con la dministración de sesiones de usuario, la creación de API de gRPC, el uso de la Gateway de gRPC para recibir solicitudes de gRPC y HTTP al mismo tiempo, la incorporación de documentación de Swagger como parte del servicio de backend y la actualización parcial de los datos del usariario mediante parametros opcionales y escribir middlewares HTTP de logs estructurado e interceptores gRPC.
+
 - [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
-- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)  
 
 ## 🔨 Tecnologias usadas:
 - **Go**: go version go1.21.4 linux/amd64
@@ -265,7 +270,7 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **14.** Implementacion automatica en Kubernetes con Github Actio. Continous Deployment (CD)
    - Se actualizo el archivo ```workflows/deploy.yml```
 
-**Seccion 3.** Arquitectura de la aplicacion en la segunda seccion
+**Seccion 3.** Arquitectura de la aplicacion en la tercer seccion
    - Resumen:
       - Base de datos de produccion hosteada en AWS RDS
       - Servicio de API bank hosteado en en AWS EKS
@@ -286,6 +291,8 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 - [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ### 🚀 Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]
+Trabaje con la dministración de sesiones de usuario, la creación de API de gRPC, el uso de la Gateway de gRPC para recibir solicitudes de gRPC y HTTP al mismo tiempo, la incorporación de documentación de Swagger como parte del servicio de backend y la actualización parcial de los datos del usariario mediante parametros opcionales y escribir middlewares HTTP de logs estructurado e interceptores gRPC.
+
 **1.** Como gestionar automaticamente la sesion del usuario con el token de actualizacion
    - Se agrego un token de acceso para que la sesion dure 1 dia
    - Tambien se agrego la tabal de Session para llevar un regitro de las sesiones inciadas
@@ -318,9 +325,9 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
       - Traduce llamadas HTTP JSON a gRPC
          - In-process transaltion: only for uniary gRPC
          - Separate proxy server: both unary and streaming gRPC
-   - Escribir codigo una vez, servir gRPC & HTTP requests  
+   - Escribir codigo una vez, servir gRPC & HTTP requests
 
-![39](https://github.com/valrichter/go-basic-bank/assets/67121197/27812da8-fde5-4d16-a773-37d7856c7a2c)
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/27812da8-fde5-4d16-a773-37d7856c7a2c"/><br>
 
 **4.** Defini la API gRPC y genere codigo Go con protobuf
    - Se escribio una definicion de protobuf para un servicio API de gRPC
@@ -372,3 +379,25 @@ Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en
 **16.** Desarolle mejores logs para las gRPC APIs utilizado zerolog
 
 **17.** Implementacion de un middleware de de logs para las solicitudes de las HTTP APIs (implementado en la Gateway de gRPC)
+
+**Seccion 4.** Arquitectura de la aplicacion en la cuarta seccion
+   - Resumen:
+      - Se eleminaron los servicios de AWS por una cuestion de presupuesto
+      - Se matuvo el CI de GitHub actions
+      - Se agregaro seiones de usarios
+      - Se implemento el protocolo gRPC y una Gateway para poder recibir peticiones HTTP
+      - Se agrego documentacion de la API y la DB
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/b6e64b40-d6a3-4f44-bb0e-4c10e70ccef5"/><br>
+
+***
+
+## Seccion 5
+- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
+- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
+- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+
+### ⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]
