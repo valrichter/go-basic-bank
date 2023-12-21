@@ -415,3 +415,5 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
       - Crear un nuevo usario en la DB
       - Enviar una nueva tarea a la queue de Redis
       - Correr los workers en segundo plano para recoger la tarea de la queue y procesarla
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/d8a2e47e-8fa2-44e9-8043-3efb28c89537"/><br>
