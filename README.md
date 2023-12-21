@@ -57,6 +57,7 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
 - **gRPC**: libprotoc v3.12.4
 - **Migrate**: golang-migrate v4.16.2
+- **Asynq**: github.com/hibiken/asynq v0.24.1
 
 ## Seccion 1
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
@@ -402,3 +403,15 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 - [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
 
 ### ⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]
+
+**1.** Implemente un background worker en Go con Redis y asynq
+   - Problema: Necesitamos ejecutar una tarea que no puede ser procesada inmediatamente
+   - Soluciones:
+      - Go routines -> Viven en la memoria RAM -> Si se cae el servidor se pierde la ejecucion de las tareas
+      - Usar un message broker & background workers
+         - Las tareas se guardan en memoria y en disco
+         - Alta disponibildad: Redis sentinel o Redis cluster
+   - Implemente Procesamiento Asincronico para el caso de uso: Verficarcion de Email
+      - Crear un nuevo usario en la DB
+      - Enviar una nueva tarea a la queue de Redis
+      - Correr los workers en segundo plano para recoger la tarea de la queue y procesarla
