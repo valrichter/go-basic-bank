@@ -404,7 +404,7 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 
 ### ⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]
 
-**1.** Implemente un background worker en Go con Redis y asynq
+**1.** Implemente un background worker en Go con Redis y asynq (Woker Pattern)
    - Problema: Necesitamos ejecutar una tarea que no puede ser procesada inmediatamente
    - Soluciones:
       - Go routines -> Viven en la memoria RAM -> Si se cae el servidor se pierde la ejecucion de las tareas
@@ -417,3 +417,5 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
       - Correr los workers en segundo plano para recoger la tarea de la queue y procesarla
 
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/d8a2e47e-8fa2-44e9-8043-3efb28c89537"/><br>
+
+**2.** Integre el async worker al servidor web Go
