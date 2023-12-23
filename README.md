@@ -419,3 +419,7 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/d8a2e47e-8fa2-44e9-8043-3efb28c89537"/><br>
 
 **2.** Integre el async worker al servidor web Go
+
+**3.** Enviar tareas asincronas a Redis dentro de una transaccion de base de datos
+   - Problema, si la conexion con Redis fallaba aun asi el amil quedadaba grabado en PostgreSQL
+   - Se envolvio todo en una Trasaction para que no pase esta falla
