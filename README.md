@@ -421,5 +421,7 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 **2.** Integre el async worker al servidor web Go
 
 **3.** Enviar tareas asincronas a Redis dentro de una transaccion de base de datos
-   - Problema, si la conexion con Redis fallaba aun asi el amil quedadaba grabado en PostgreSQL
+   - Problema, si la conexion con Redis fallaba aun asi el email quedadaba grabado en PostgreSQL
    - Se envolvio todo en una Trasaction para que no pase esta falla
+
+**4.** Manejar los errores e imprimir los registros para los Go Asynq workers
