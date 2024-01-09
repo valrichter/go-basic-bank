@@ -7,6 +7,8 @@ import (
 
 	"github.com/hibiken/asynq"
 	"github.com/rs/zerolog/log"
+	db "github.com/valrichter/go-basic-bank/db/sqlc"
+	"github.com/valrichter/go-basic-bank/util"
 )
 
 const (
@@ -60,7 +62,30 @@ func (processor *RedisTaskProcessor) ProcessTaskSendVerifyEmail(
 		// }
 		return fmt.Errorf("failed to get user: %w", err)
 	}
-	// TODO: send verify email
+
+	// Verify email
+	verifyEmail, err := processor.store.CreateVerifyEmail(ctx, db.CreateVerifyEmailParams{
+		Username:   user.Username,
+		Email:      user.Email,
+		SecretCode: util.RandomString(32),
+	})
+	if err != nil {
+		return fmt.Errorf("failed to create verify email: %w", err)
+	}
+
+	// Send email
+	subject := "Welcome to Go Basic Bank"
+	verifyUrl := fmt.Sprintf("http://go-basic-bank.org/verify_email?id=%d&secrect_code=$%s", verifyEmail.ID, verifyEmail.SecretCode)
+	content := fmt.Sprintf(`Hello, %s,<br/>
+	Thank you for registering!<br/>
+	Please <a href=%s">click here</a> to verify your email<br/>`, user.FullName, verifyUrl)
+	to := []string{user.Email}
+
+	err = processor.mailer.SendEmail(subject, content, to, nil, nil, nil)
+	if err != nil {
+		return fmt.Errorf("failed to send verify email: %w", err)
+	}
+
 	log.Info().
 		Str("type", task.Type()).
 		Bytes("payload", task.Payload()).

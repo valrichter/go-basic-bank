@@ -437,3 +437,5 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 
 **8.** Verificacion de emial en Go: diseñar base de datos y enviar emial
    - Se agrego una nueva tabla llamada verify_email para almacenar los correos verificados
+   - Se agrego la nueva verison a la configuracion de migraciones de la DB
+   - Se envia un nuevo email para que el usario verifique su correo
