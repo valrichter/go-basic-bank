@@ -425,3 +425,6 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
    - Se envolvio todo en una Trasaction para que no pase esta falla
 
 **4.** Manejar los errores e imprimir los registros para los Go Asynq workers
+
+**5.** Porque es importante agragar un poco de delay a las tareas asincronas?
+   - Porque puede pasar en una Transaccion dure mucha cantidad de tiempo para que se complete esto provoca que no se complete la tarea asincrona pues impoacta en la base de datos cuando aun un usario no ha sido registrado pues la transaccion no ha terminado
