@@ -1,14 +1,25 @@
 -- SQL dump generated using DBML (dbml-lang.org)
 -- Database: PostgreSQL
--- Generated at: 2023-11-17T22:20:23.151Z
+-- Generated at: 2024-01-09T15:05:56.522Z
 
 CREATE TABLE "users" (
   "username" varchar PRIMARY KEY,
   "hashed_password" varchar NOT NULL,
   "full_name" varchar NOT NULL,
   "email" varchar UNIQUE NOT NULL,
+  "is_email_verified" boolean NOT NULL DEFAULT false,
   "password_chaged_at" timestamptz NOT NULL DEFAULT '0001-01-01 00:00:00Z',
   "created_at" timestamptz NOT NULL DEFAULT (now ())
+);
+
+CREATE TABLE "verify_email" (
+  "id" bigserial PRIMARY KEY,
+  "username" varchar NOT NULL,
+  "email" varchar UNIQUE NOT NULL,
+  "secret_code" varchar NOT NULL,
+  "is_used" bool NOT NULL DEFAULT false,
+  "created_at" timestamptz NOT NULL DEFAULT (now ()),
+  "expires_at" timestamptz NOT NULL DEFAULT (now () + interval '15 minutes')
 );
 
 CREATE TABLE "account" (
@@ -60,6 +71,8 @@ CREATE INDEX ON "transfer" ("from_account_id", "to_account_id");
 COMMENT ON COLUMN "entry"."amount" IS 'can be negative or positive';
 
 COMMENT ON COLUMN "transfer"."amount" IS 'must be positive';
+
+ALTER TABLE "verify_email" ADD FOREIGN KEY ("username") REFERENCES "users" ("username");
 
 ALTER TABLE "account" ADD FOREIGN KEY ("owner") REFERENCES "users" ("username");
 

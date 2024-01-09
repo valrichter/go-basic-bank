@@ -432,3 +432,8 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 **6.** Como enviar emials en Go a traves de Gmail
    - Enviando correos con SMTP (Simple Mail Transfer Protocol)
    - Se uso la libreria ```emial``` para mas simpleza a la hora de implementar smtp
+
+**7.** Se skipeo el test de emails para no enviarse correos a traves de Gmail
+
+**8.** Verificacion de emial en Go: diseñar base de datos y enviar emial
+   - Se agrego una nueva tabla llamada verify_email para almacenar los correos verificados

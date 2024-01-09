@@ -3,28 +3,31 @@ DB_URL=postgresql://root:secret@localhost:5432/bank?sslmode=disable
 postgres:
 	docker run --name bank_db --network bank-network -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:15.4-alpine
 
-createdb:
+db_create:
 	docker exec -it bank_db createdb --username=root --owner=root bank
 	
-dropdb:
+db_drop:
 	docker exec -it bank_db dropdb bank
 
 migrateup:
 	migrate -path db/migration -database "$(DB_URL)" -verbose up
 
-migrateup1:
+migrateup_1:
 	migrate -path db/migration -database "$(DB_URL)" -verbose up 1
 
 migratedown:
 	migrate -path db/migration -database "$(DB_URL)" -verbose down
 
-migratedown1:
+migratedown_1:
 	migrate -path db/migration -database "$(DB_URL)" -verbose down 1
-	
-dbdocs:
+
+new_migration:
+	migrate create -ext sql -dir db/migration -seq $(name)
+
+db_docs:
 	dbdocs build doc/db.dbml
 
-dbschema:
+db_schema:
 	dbml2sql --postgres -o doc/schema.sql doc/db.dbml 
 
 sqlc:
@@ -54,4 +57,4 @@ evans:
 redis:
 	docker run --name go-basic-bank-redis -p 6379:6379 -d redis:7.2.3-alpine
 
-.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 dbdocs dbschemasqlc test server mock proto evans redis
+.PHONY: postgres db_create db_drop migrateup migratedown migrateup_1 migratedown_1 new_migration db_docs db_schema sqlc test server mock proto evans redis
