@@ -428,3 +428,7 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 
 **5.** Porque es importante agragar un poco de delay a las tareas asincronas?
    - Porque puede pasar en una Transaccion dure mucha cantidad de tiempo para que se complete esto provoca que no se complete la tarea asincrona pues impoacta en la base de datos cuando aun un usario no ha sido registrado pues la transaccion no ha terminado
+
+**6.** Como enviar emials en Go a traves de Gmail
+   - Enviando correos con SMTP (Simple Mail Transfer Protocol)
+   - Se uso la libreria ```emial``` para mas simpleza a la hora de implementar smtp
