@@ -7,8 +7,7 @@ INSERT INTO
         full_name,
         email
     )
-VALUES ($1, $2, $3, $4)
-RETURNING *;
+VALUES ($1, $2, $3, $4) RETURNING *;
 
 -- name: GetUser :one
 
@@ -19,18 +18,18 @@ SELECT * FROM users WHERE username = $1 LIMIT 1;
 UPDATE users
 SET
     hashed_password = coalesce(
-        sqlc.narg('hashed_password'),
+        sqlc.narg(hashed_password),
         hashed_password
     ),
     password_chaged_at = coalesce(
-        sqlc.narg('password_chaged_at'),
+        sqlc.narg(password_chaged_at),
         password_chaged_at
     ),
     full_name = coalesce(
-        sqlc.narg('full_name'),
+        sqlc.narg(full_name),
         full_name
     ),
-    email = coalesce(sqlc.narg('email'), email)
+    email = coalesce(sqlc.narg(email), email),
+    is_email_verified = COALESCE(sqlc.narg(is_email_verified), is_email_verified)
 WHERE
-    username = sqlc.arg('username')
-RETURNING *;
+    username = sqlc.arg('username') RETURNING *;

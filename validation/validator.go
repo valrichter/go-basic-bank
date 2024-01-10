@@ -52,3 +52,17 @@ func ValidateEmail(value string) error {
 	}
 	return nil
 }
+
+func ValidateEmailId(id int64) error {
+	if id < 1 {
+		return fmt.Errorf("invalid email id")
+	}
+	return nil
+}
+
+func ValidateSecretCode(code string) error {
+	if err := ValidateString(code, 32, 128); err != nil {
+		return err
+	}
+	return nil
+}

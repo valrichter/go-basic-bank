@@ -436,6 +436,15 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 **7.** Se skipeo el test de emails para no enviarse correos a traves de Gmail
 
 **8.** Verificacion de emial en Go: diseñar base de datos y enviar emial
+   - Para cada nuevo usario generamos una nueva contrasena random y lo almacemos en la DB
+   - Se integro la funcionalidad el worker
    - Se agrego una nueva tabla llamada verify_email para almacenar los correos verificados
    - Se agrego la nueva verison a la configuracion de migraciones de la DB
    - Se envia un nuevo email para que el usario verifique su correo
+
+**9.** Implementacion de API de verificación de email para verificar el email del usuario
+   - Defini un nuevo end point de portobuff para recibir la peticion de verificacion de correo ```rpc_verify_email.proto```
+   - Agreggue validaciones de email a ```validator.go```
+   - Validamos la request
+   - Hacemos una consulta a la base de datos con una transaction ```tx_verify_email.go```
+   - Retornamos una response a traves de gRPC
