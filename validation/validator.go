@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	isValidUsername = regexp.MustCompile(`^[a-z0-9_]+$`).MatchString
+	isValidUsername = regexp.MustCompile(`^[a-zA-Z0-9_]+$`).MatchString
 	isValidFullName = regexp.MustCompile(`^[a-zA-Z\s]+$`).MatchString
 )
 
@@ -24,7 +24,7 @@ func ValidateUsername(value string) error {
 		return err
 	}
 	if !isValidUsername(value) {
-		return fmt.Errorf("must contain only lowercase letters, digits or underscores")
+		return fmt.Errorf("must contain only lowercase letters, digits or underscores -> %s", value)
 	}
 	return nil
 }
@@ -34,7 +34,7 @@ func ValidateFullName(value string) error {
 		return err
 	}
 	if !isValidFullName(value) {
-		return fmt.Errorf("must contain only letters or spaces")
+		return fmt.Errorf("must contain only letters or spaces-> %s", value)
 	}
 	return nil
 }
@@ -48,14 +48,14 @@ func ValidateEmail(value string) error {
 		return err
 	}
 	if _, err := mail.ParseAddress(value); err != nil {
-		return fmt.Errorf("must be a valid email address")
+		return fmt.Errorf("must be a valid email address-> %s", value)
 	}
 	return nil
 }
 
 func ValidateEmailId(id int64) error {
 	if id < 1 {
-		return fmt.Errorf("invalid email id")
+		return fmt.Errorf("%d : invalid email id", id)
 	}
 	return nil
 }

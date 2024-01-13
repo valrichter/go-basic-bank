@@ -448,3 +448,5 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
    - Validamos la request
    - Hacemos una consulta a la base de datos con una transaction ```tx_verify_email.go```
    - Retornamos una response a traves de gRPC
+
+**10.** Unit Test de API gRPC con mock de Postgres y Redis
