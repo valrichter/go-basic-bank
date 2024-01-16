@@ -19,17 +19,19 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 Profundicé en el diseño de bases de datos, lo que me permitió modelar y gestionar datos de manera eficiente. Interactué con la base de datos utilizando transacciones y comprendí los niveles de aislamiento de la base de datos. Además, aprendí a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
 
 - [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)  
-Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
+Desarrollo una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
 
 - [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)  
-Amplié mis conocimientos aprendiendo a construir y desplegar una aplicación en un clúster de Kubernetes en AWS. A través de guías detalladas, comprendí cómo crear imágenes Docker eficientes, configurar bases de datos de producción, gestionar secretos de manera segura y llevar a cabo la implementación en Kubernetes con EKS.
+Ampliacion de conocimientos aprendiendo a construir y desplegar una aplicación en un clúster de Kubernetes en AWS. A través de guías detalladas, comprendí cómo crear imágenes Docker eficientes, configurar bases de datos de producción, gestionar secretos de manera segura y llevar a cabo la implementación en Kubernetes con EKS.
 
 - [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)  
-Trabaje con la dministración de sesiones de usuario, la creación de API de gRPC, el uso de la Gateway de gRPC para recibir solicitudes de gRPC y HTTP al mismo tiempo, la incorporación de documentación de Swagger como parte del servicio de backend y la actualización parcial de los datos del usariario mediante parametros opcionales y escribir middlewares HTTP de logs estructurado e interceptores gRPC.
+Trabajo con la administración de sesiones de usuario, la creación de API de gRPC, el uso de la Gateway de gRPC para recibir solicitudes de gRPC y HTTP al mismo tiempo, la incorporación de documentación de Swagger como parte del servicio de backend y la actualización parcial de los datos del usariario mediante parametros opcionales y escribir middlewares HTTP de logs estructurado e interceptores gRPC.
 
-- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)  
+Procesamiento asincrónico en Golang utilizando trabajadores en segundo plano y Redis como cola de mensajes.  Como crear y enviar correos electrónicos a usuarios a través del servidor SMTP de Gmail. Comoo escribir pruebas unitarias para las APIs gRPC implementando mocks.
 
 - [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)  
+  Como mejorar la estabilidad y seguridad del servidor.  Uso de cookies para hacer que el token de actualización sea más seguro y cómo apagar correctamente el servidor para proteger los recursos de procesamiento.
 
 ## 🔨 Tecnologias usadas:
 - **Go**: go version go1.21.4 linux/amd64
@@ -452,3 +454,26 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 **10.** Unit Test de API gRPC con mock de Postgres y Redis
 
 **11.** Test a la API gRPC que requiere autenticacion, test a Update User
+
+**Seccion 5.** Arquitectura de la aplicacion en la quinta seccion
+   - Resumen:
+      - Se agrego una cola asincrona para el procesamieto de verificacion de usario
+      - Se aplico Redis como DB para guardas la peticiones en cola
+      - Se agregaron Unis Test importates a la API gRPC de Update y Create user
+      - Se implemento el envio de emails
+      - Se agrego una tabla "verify_email" junto con trasacciones para la verificacion del email
+
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/b6e64b40-d6a3-4f44-bb0e-4c10e70ccef5"/><br>
+
+***
+
+## Seccion 6
+- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
+- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)
+- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)
+- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)
+- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)
+- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)
+
+### 🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]
+Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
