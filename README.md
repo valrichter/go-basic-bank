@@ -450,3 +450,5 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
    - Retornamos una response a traves de gRPC
 
 **10.** Unit Test de API gRPC con mock de Postgres y Redis
+
+**11.** Test a la API gRPC que requiere autenticacion, test a Update User
