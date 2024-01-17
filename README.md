@@ -463,7 +463,7 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
       - Se implemento el envio de emails
       - Se agrego una tabla "verify_email" junto con trasacciones para la verificacion del email
 
-<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/b6e64b40-d6a3-4f44-bb0e-4c10e70ccef5"/><br>
+<img src="https://github.com/valrichter/go-basic-bank/assets/67121197/b49f6376-687d-4c0f-b4b4-8495ca837206"/><br>
 
 ***
 
