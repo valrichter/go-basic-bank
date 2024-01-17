@@ -453,7 +453,7 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 
 **10.** Unit Test de API gRPC con mock de Postgres y Redis
 
-**11.** Test a la API gRPC que requiere autenticacion, test a Update User
+Configurar sqlc versión 2 para Go y Postgres
 
 **Seccion 5.** Arquitectura de la aplicacion en la quinta seccion
    - Resumen:
@@ -477,3 +477,5 @@ Trabaje con la dministración de sesiones de usuario, la creación de API de gRP
 
 ### 🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]
 Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
+
+**1.** Configuracion de sqlc version 2 para Go y Postgres

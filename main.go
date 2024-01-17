@@ -15,7 +15,7 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/github"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/hibiken/asynq"
-	_ "github.com/lib/pq"
+	_ "github.com/jackc/pgx"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/valrichter/go-basic-bank/api"
