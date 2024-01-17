@@ -479,3 +479,7 @@ Configurar sqlc versión 2 para Go y Postgres
 Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
 
 **1.** Configuracion de sqlc version 2 para Go y Postgres
+
+**2.** Cambio del controlador de base de datos de lib/pq a pgx puesto que lib/pq ya no tiene soporte
+
+**3.** Manejo de errores de la DB con el package PGX

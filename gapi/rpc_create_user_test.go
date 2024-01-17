@@ -127,7 +127,7 @@ func TestCreateUserAPI(t *testing.T) {
 					CreateUserTx(gomock.Any(), gomock.Any()).
 					Times(1).
 					Return(db.CreateUserTxResult{User: user}, sql.ErrConnDone)
-	
+
 				taskDistributor.EXPECT().
 					DistributedTaskSendVerifyEmail(gomock.Any(), gomock.Any(), gomock.Any()).
 					Times(0)
@@ -137,6 +137,27 @@ func TestCreateUserAPI(t *testing.T) {
 				st, ok := status.FromError(err)
 				require.True(t, ok)
 				require.Equal(t, codes.Internal, st.Code())
+			},
+		},
+		{
+			name: "DuplicateUsername",
+			req: &pb.CreateUserRequest{
+				Username: user.Username,
+				Password: password,
+				FullName: user.FullName,
+				Email:    user.Email,
+			},
+			buildStubs: func(store *mockdb.MockStore, taskDistributor *mockwk.MockTaskDistributor) {
+				store.EXPECT().
+					CreateUserTx(gomock.Any(), gomock.Any()).
+					Times(1).
+					Return(db.CreateUserTxResult{}, db.ErrUniqueViolation)
+			},
+			checkResponse: func(t *testing.T, res *pb.CreateUserResponse, err error) {
+				require.Error(t, err)
+				st, ok := status.FromError(err)
+				require.True(t, ok)
+				require.Equal(t, codes.AlreadyExists, st.Code())
 			},
 		},
 	}

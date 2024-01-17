@@ -2,10 +2,10 @@ package db
 
 import (
 	"context"
-	"database/sql"
 	"testing"
 	"time"
 
+	"github.com/jackc/pgx/v5/pgtype"
 	"github.com/stretchr/testify/require"
 	"github.com/valrichter/go-basic-bank/util"
 )
@@ -21,7 +21,7 @@ func createRandomUser(t *testing.T) User {
 		Email:          util.RandomEmail(),
 	}
 
-	user, err := testQueries.CreateUser(context.Background(), arg)
+	user, err := testStore.CreateUser(context.Background(), arg)
 	require.NoError(t, err)
 	require.NotEmpty(t, user)
 
@@ -42,7 +42,7 @@ func TestCreateUser(t *testing.T) {
 
 func TestGetUser(t *testing.T) {
 	user1 := createRandomUser(t)
-	user2, err := testQueries.GetUser(context.Background(), user1.Username)
+	user2, err := testStore.GetUser(context.Background(), user1.Username)
 	require.NoError(t, err)
 	require.NotEmpty(t, user2)
 
@@ -63,7 +63,7 @@ func TestUpdateUser(t *testing.T) {
 		Balance: util.RandomMoney(),
 	}
 
-	account2, err := testQueries.UpdateAccount(context.Background(), arg)
+	account2, err := testStore.UpdateAccount(context.Background(), arg)
 	require.NoError(t, err)
 	require.NotEmpty(t, account2)
 	require.Equal(t, account1.ID, account2.ID)
@@ -75,12 +75,12 @@ func TestUpdateUser(t *testing.T) {
 
 func TestDeleteUser(t *testing.T) {
 	account1 := createRandomAccount(t)
-	err := testQueries.DeleteAccount(context.Background(), account1.ID)
+	err := testStore.DeleteAccount(context.Background(), account1.ID)
 	require.NoError(t, err)
 
-	account2, err := testQueries.GetAccount(context.Background(), account1.ID)
+	account2, err := testStore.GetAccount(context.Background(), account1.ID)
 	require.Error(t, err)
-	require.EqualError(t, err, sql.ErrNoRows.Error())
+	require.EqualError(t, err, ErrRecordNotFound.Error())
 	require.Empty(t, account2)
 }
 
@@ -95,7 +95,7 @@ func TestListUser(t *testing.T) {
 		Offset: 0,
 	}
 
-	accounts, err := testQueries.ListAccount(context.Background(), arg)
+	accounts, err := testStore.ListAccount(context.Background(), arg)
 	require.NoError(t, err)
 	require.NotEmpty(t, accounts)
 
@@ -109,9 +109,9 @@ func TestUpdateUserOnlyFullName(t *testing.T) {
 	oldUser := createRandomUser(t)
 
 	newFullName := util.RandomOwner()
-	updateUser, err := testQueries.UpdateUser(context.Background(), UpdateUserParams{
+	updateUser, err := testStore.UpdateUser(context.Background(), UpdateUserParams{
 		Username: oldUser.Username,
-		FullName: sql.NullString{
+		FullName: pgtype.Text{
 			String: newFullName,
 			Valid:  true,
 		},
@@ -128,9 +128,9 @@ func TestUpdateUserOnlyEmail(t *testing.T) {
 	oldUser := createRandomUser(t)
 
 	newEmail := util.RandomEmail()
-	updateUser, err := testQueries.UpdateUser(context.Background(), UpdateUserParams{
+	updateUser, err := testStore.UpdateUser(context.Background(), UpdateUserParams{
 		Username: oldUser.Username,
-		Email: sql.NullString{
+		Email: pgtype.Text{
 			String: newEmail,
 			Valid:  true,
 		},
@@ -149,9 +149,9 @@ func TestUpdateUserOnlyPassword(t *testing.T) {
 	newPassword := util.RandomPassword(6)
 	newHasedPassword, err := util.HashPassword(newPassword)
 	require.NoError(t, err)
-	updateUser, err := testQueries.UpdateUser(context.Background(), UpdateUserParams{
+	updateUser, err := testStore.UpdateUser(context.Background(), UpdateUserParams{
 		Username: oldUser.Username,
-		HashedPassword: sql.NullString{
+		HashedPassword: pgtype.Text{
 			String: newHasedPassword,
 			Valid:  true,
 		},
@@ -173,17 +173,17 @@ func TestUpdateUserAllFields(t *testing.T) {
 	newHasedPassword, err := util.HashPassword(newPassword)
 	require.NoError(t, err)
 
-	updateUser, err := testQueries.UpdateUser(context.Background(), UpdateUserParams{
+	updateUser, err := testStore.UpdateUser(context.Background(), UpdateUserParams{
 		Username: oldUser.Username,
-		FullName: sql.NullString{
+		FullName: pgtype.Text{
 			String: newFullName,
 			Valid:  true,
 		},
-		Email: sql.NullString{
+		Email: pgtype.Text{
 			String: newEmail,
 			Valid:  true,
 		},
-		HashedPassword: sql.NullString{
+		HashedPassword: pgtype.Text{
 			String: newHasedPassword,
 			Valid:  true,
 		},

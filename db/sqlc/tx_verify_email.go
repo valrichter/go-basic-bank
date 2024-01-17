@@ -2,7 +2,8 @@ package db
 
 import (
 	"context"
-	"database/sql"
+
+	"github.com/jackc/pgx/v5/pgtype"
 )
 
 // Contains the imput parameters for VerifyEmail
@@ -34,7 +35,7 @@ func (store *SQLStore) VerifyEmailTx(ctx context.Context, arg VerifyEmailTxParam
 
 		result.User, err = q.UpdateUser(ctx, UpdateUserParams{
 			Username: result.VerifyEmail.Username,
-			IsEmailVerified: sql.NullBool{
+			IsEmailVerified: pgtype.Bool{
 				Bool:  true,
 				Valid: true,
 			},
