@@ -24,6 +24,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
+      - "7070:7070"
       - "8080:8080"
       - "9090:9090"
     environment:
