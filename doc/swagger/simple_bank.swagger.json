@@ -126,7 +126,7 @@
     "/v1/verify_email": {
       "get": {
         "summary": "Gateway: Verify Email",
-        "description": "Use this API to Verify Email",
+        "description": "Use this API to verify user's email address",
         "operationId": "BasicBank_VerifyEmail",
         "responses": {
           "200": {
