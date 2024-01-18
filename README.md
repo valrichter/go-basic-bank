@@ -489,3 +489,5 @@ Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a ca
 **4.** Docker compose: puerto para exoponer las dos APIs (HTTP y gRPC) y agregado de volumen para el container de PostgreSQL
 
 **5.** Instalar y usar paquetes binarios en Go
+
+**6.** Implementacion de control de acceso basado en roles (RBAC)
