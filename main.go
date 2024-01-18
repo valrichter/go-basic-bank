@@ -55,7 +55,8 @@ func main() {
 	taskDistributor := worker.NewRedisTaskDistributor(redisOtp)
 	go runTaskProcessor(config, redisOtp, store)
 	go runGatewayServer(config, store, taskDistributor)
-	go runGRPCServer(config, store, taskDistributor)
+	go runGinServer(config, store)
+	runGRPCServer(config, store, taskDistributor)
 }
 
 func runDBMigration(migrationURL string, dbSource string) {
