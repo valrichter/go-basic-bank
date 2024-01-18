@@ -58,4 +58,11 @@ evans:
 redis:
 	docker run --name go-basic-bank-redis -p 6379:6379 -d redis:7.2.3-alpine
 
-.PHONY: postgres db_create db_drop migrateup migratedown migrateup_1 migratedown_1 new_migration db_docs db_schema sqlc test server mock proto evans redis
+appup:
+	docker compose up -d
+
+appdown:
+	docker compose down
+	docker rmi go-basic-bank-api:latest
+
+.PHONY: postgres db_create db_drop migrateup migratedown migrateup_1 migratedown_1 new_migration db_docs db_schema sqlc test server mock proto evans redis appup appdown
