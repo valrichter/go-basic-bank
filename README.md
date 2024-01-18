@@ -10,7 +10,7 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
    docker compose up -d
 ```
 2. Pruebe los endpoints del servicio HTTP con Postman: [MANUAL DE COMO PROBAR LA API](https://documenter.getpostman.com/view/23701330/2s9YXnyyKm#46fb489f-3fb0-4708-9ada-80047d2bc65d)
-3. Tambien puede probar los servicios mediante ```https://localhost:8080/swagger/```
+3. Tambien puede probar los servicios mediante ```localhost:8080/swagger/```
 4. Informacion de como es la arquitectura de la app: [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
 5. Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
 
