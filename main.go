@@ -55,8 +55,7 @@ func main() {
 	taskDistributor := worker.NewRedisTaskDistributor(redisOtp)
 	go runTaskProcessor(config, redisOtp, store)
 	go runGatewayServer(config, store, taskDistributor)
-	go runGinServer(config, store)
-	runGRPCServer(config, store, taskDistributor)
+	go runGRPCServer(config, store, taskDistributor)
 }
 
 func runDBMigration(migrationURL string, dbSource string) {
@@ -107,10 +106,10 @@ func runGRPCServer(config util.Config, store db.Store, taskDistributor worker.Ta
 }
 
 var (
-	//go:embed doc/swagger
+	//go:embed docs/swaggerGRPC
 	swagger embed.FS
 	//TODO: fix swaggerFS se guarda en la memoeria loca el primer estado registrado, por lo que no se actualiza cuando se modifica la documentacion
-	swaggerFS, _ = fs.Sub(swagger, "doc/swagger")
+	swaggerFS, _ = fs.Sub(swagger, "docs/swagger")
 )
 
 func runGatewayServer(config util.Config, store db.Store, taskDistributor worker.TaskDistributor) {
