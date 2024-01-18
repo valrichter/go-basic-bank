@@ -28,8 +28,18 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
-func main() {
+// @BasePath /api/v1
 
+// PingExample godoc
+// @Summary ping example
+// @Schemes
+// @Description do ping
+// @Tags example
+// @Accept json
+// @Produce json
+// @Success 200 {string} Helloworld
+// @Router /example/helloworld [get]
+func main() {
 	config, err := util.LoadConfig(".")
 	if err != nil {
 		log.Fatal().Err(err).Msg("cannot load config:")
@@ -107,10 +117,10 @@ func runGRPCServer(config util.Config, store db.Store, taskDistributor worker.Ta
 }
 
 var (
-	//go:embed doc/swagger
+	//go:embed docs/rpc_swagger
 	swagger embed.FS
 	//TODO: fix swaggerFS se guarda en la memoeria loca el primer estado registrado, por lo que no se actualiza cuando se modifica la documentacion
-	swaggerFS, _ = fs.Sub(swagger, "doc/swagger")
+	swaggerFS, _ = fs.Sub(swagger, "docs/rpc_swagger")
 )
 
 func runGatewayServer(config util.Config, store db.Store, taskDistributor worker.TaskDistributor) {
