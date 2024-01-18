@@ -106,10 +106,10 @@ func runGRPCServer(config util.Config, store db.Store, taskDistributor worker.Ta
 }
 
 var (
-	//go:embed docs/swaggerGRPC
+	//go:embed doc/swagger
 	swagger embed.FS
 	//TODO: fix swaggerFS se guarda en la memoeria loca el primer estado registrado, por lo que no se actualiza cuando se modifica la documentacion
-	swaggerFS, _ = fs.Sub(swagger, "docs/swagger")
+	swaggerFS, _ = fs.Sub(swagger, "doc/swagger")
 )
 
 func runGatewayServer(config util.Config, store db.Store, taskDistributor worker.TaskDistributor) {
