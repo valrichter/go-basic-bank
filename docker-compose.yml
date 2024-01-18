@@ -8,6 +8,8 @@ services:
       - POSTGRES_DB=bank
     ports:
       - "5432:5432"
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -d bank -U root" ]
       interval: 10s
@@ -32,3 +34,5 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
+volumes:
+  postgres-volume:
