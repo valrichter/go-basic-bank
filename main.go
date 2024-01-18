@@ -55,6 +55,7 @@ func main() {
 	taskDistributor := worker.NewRedisTaskDistributor(redisOtp)
 	go runTaskProcessor(config, redisOtp, store)
 	go runGatewayServer(config, store, taskDistributor)
+	go runGinServer(config, store)
 	runGRPCServer(config, store, taskDistributor)
 }
 
@@ -139,7 +140,7 @@ func runGatewayServer(config util.Config, store db.Store, taskDistributor worker
 	// 	return nil
 	// })
 
-	listener, err := net.Listen("tcp", config.HTTPServerAddress)
+	listener, err := net.Listen("tcp", config.HTTPGatewayAddress)
 	if err != nil {
 		log.Fatal().Err(err).Msg("cannot create listener:")
 	}
