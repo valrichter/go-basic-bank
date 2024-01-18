@@ -485,3 +485,7 @@ Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a ca
 **2.** Cambio del controlador de base de datos de lib/pq a pgx puesto que lib/pq ya no tiene soporte
 
 **3.** Manejo de errores de la DB con el package PGX
+
+**4.** Docker compose: puerto para exoponer las dos APIs (HTTP y gRPC) y agregado de volumen para el container de PostgreSQL
+
+**5.** Instalar y usar paquetes binarios en Go
