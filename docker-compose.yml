@@ -12,15 +12,23 @@ services:
       test: [ "CMD-SHELL", "pg_isready -d bank -U root" ]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 3
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
   api:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      - DB_SOURCE=postgresql://root:secret@postgres:5432/bank?sslmode=disable
     ports:
       - "8080:8080"
+      - "9090:9090"
+    environment:
+      - DB_SOURCE=postgresql://root:secret@postgres:5432/bank?sslmode=disable
+      - REDIS_ADDRESS=redis:6379
     depends_on:
       postgres:
         condition: service_healthy
+      redis:
+        condition: service_started

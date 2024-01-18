@@ -34,7 +34,7 @@ Procesamiento asincrónico en Golang utilizando trabajadores en segundo plano y 
   Como mejorar la estabilidad y seguridad del servidor.  Uso de cookies para hacer que el token de actualización sea más seguro y cómo apagar correctamente el servidor para proteger los recursos de procesamiento.
 
 ## 🔨 Tecnologias usadas:
-- **Go**: go version go1.21.4 linux/amd64
+- **Go**: go version go1.21.6 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
 - **Docker**: docker v24.0.6
 - **Kubernetes:** Kubernetes v1.28.3
@@ -60,6 +60,8 @@ Procesamiento asincrónico en Golang utilizando trabajadores en segundo plano y 
 - **gRPC**: libprotoc v3.12.4
 - **Migrate**: golang-migrate v4.16.2
 - **Asynq**: github.com/hibiken/asynq v0.24.1
+- **Redis**: github.com/go-redis/redis/v8 v8.13.5
+- **pgx**: github.com/jackc/pgx/v5 v5.0.4
 
 ## Seccion 1
 - [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)
