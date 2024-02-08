@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/hibiken/asynq"
+	"github.com/rs/zerolog/log"
 	db "github.com/valrichter/go-basic-bank/db/sqlc"
 	"github.com/valrichter/go-basic-bank/pb"
 	"github.com/valrichter/go-basic-bank/util"
@@ -48,6 +49,9 @@ func (server *Server) CreateUser(ctx context.Context, req *pb.CreateUserRequest)
 		},
 	}
 
+	log.Info().Msg(">>> creating user")
+	time.Sleep(10 * time.Second)
+
 	txResult, err := server.store.CreateUserTx(ctx, arg)
 	if err != nil {
 		if db.ErrorCode(err) == db.UniqueViolation {
@@ -59,6 +63,7 @@ func (server *Server) CreateUser(ctx context.Context, req *pb.CreateUserRequest)
 	response := &pb.CreateUserResponse{
 		User: convertUser(txResult.User),
 	}
+	log.Info().Msg("<<< done creteed user")
 	return response, nil
 }
 

@@ -492,9 +492,12 @@ Desarrolle una RESTful APIs utilizando el framework Gin en Golang. Aprendí a ca
 
 **6.** Implementacion de control de acceso basado en roles (RBAC)
 
+**7.** Apagado de servidores gRPC/HTTP y async workers
+
 **Seccion 6.** Arquitectura de la aplicacion en la sexta seccion
    - Resumen:
       - Se agrego roles para identificar los distintos usarios
       - Se agrego redis a docker compose
+      
 
 <img src="https://github.com/valrichter/go-basic-bank/assets/67121197/b49f6376-687d-4c0f-b4b4-8495ca837206"/><br>
