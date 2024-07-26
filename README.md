@@ -6,7 +6,7 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
    2. Registrar todos los cambios de saldo en cada una de las cuentas.
    3. Realizar una transferencia de dinero entre 2 cuentas.
 
-## Como correr el proyecto localmente:
+## 💻 Como correr el proyecto localmente:
 1. Para levantar los servicios ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto con el siguiente comando (comando para ejecutar en un linux)
 ```bash
    sudo docker compose up -d
