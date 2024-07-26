@@ -19,8 +19,10 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 ## 🔨 Tecnologias usadas:
 - **Go**: go version go1.21.6 linux/amd64
 - **PostgreSQL**: docker image postgres:15.4
+- **Redis**: github.com/go-redis/redis/v8 v8.13.5
 - **Docker**: docker v24.0.6
 - **Kubernetes:** Kubernetes v1.28.3
+- **gRPC**: libprotoc v3.12.4
 - **Kubectl**: Kubectl Client v1.28.2
 - **k9s CLI**: k9s v0.27.4
 - **CI-CD**: GitHub Actions
@@ -40,10 +42,8 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 - **JWT**: golang-jwt/jwt v3.2.2+incompatible
 - **Paseto**: o1egl/paseto v1.0.0
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
-- **gRPC**: libprotoc v3.12.4
 - **Migrate**: golang-migrate v4.16.2
 - **Asynq**: github.com/hibiken/asynq v0.24.1
-- **Redis**: github.com/go-redis/redis/v8 v8.13.5
 - **pgx**: github.com/jackc/pgx/v5 v5.0.4
 
 ## Seccion 1
