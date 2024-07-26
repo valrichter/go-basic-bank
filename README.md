@@ -1,10 +1,12 @@
 # <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="40" /> Proyecto extenso de Backend con Go
+
+## ⚡ Acciones realizadas durante el proyecto:
 Se desarolla el servicio web backend basico de un banco. Se aprendio a como diseñar, desarrollar e implementar un servicio web backend desde cero, proporcionando APIs para que el frontend realice las siguientes acciones:
    1. Crear y gestionar cuentas bancarias.
    2. Registrar todos los cambios de saldo en cada una de las cuentas.
    3. Realizar una transferencia de dinero entre 2 cuentas.
 
-## Como correr el proyecto localmente: (solucion temporal)
+## Como correr el proyecto localmente:
 1. Para levantar los servicios ejecutar el archivo de ```docker-compose.yml``` que esta dentro del proyecto con el siguiente comando (comando para ejecutar en un linux)
 ```bash
    sudo docker compose up -d
@@ -13,25 +15,6 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 3. Tambien puede probar los servicios mediante ```localhost:7070/swagger/```
 4. Informacion de como es la arquitectura de la app: [DB DOCUMENTACION](https://dbdocs.io/valrichter/go_basic_bank), PASSWORD: secret
 5. Actualmente se esta buscando una alternativa a AWS para poder desplegar la API y con CI-CD + GitHub Actions
-
-## ⚡ Acciones realizadas durante el proyecto:
-- [🗃️ 1. Trabajando con la DB [PostgreSQL + sqlc]](#seccion-1)  
-Profundicé en el diseño de bases de datos, lo que me permitió modelar y gestionar datos de manera eficiente. Interactué con la base de datos utilizando transacciones y comprendí los niveles de aislamiento de la base de datos. Además, aprendí a utilizar Docker para crear entornos locales de desarrollo y GitHub Actions para automatizar las pruebas unitarias.
-
-- [🧩 2. Construccion de una RESTful HTTP JSON API [Gin + JWT + PASETO]](#seccion-2)  
-Desarrollo una RESTful APIs utilizando el framework Gin en Golang. Aprendí a cargar configuraciones de la aplicación, simular mocks de bases de datos para pruebas sólidas y aplicar autenticación de usuarios, asegurando la seguridad de las APIs mediante tokens JWT y PASETO.
-
-- [☁️ 3. DevOps CI/CD: Deployar la aplicacion a produccion [Docker + Kubernetes + AWS]](#seccion-3)  
-Ampliacion de conocimientos aprendiendo a construir y desplegar una aplicación en un clúster de Kubernetes en AWS. A través de guías detalladas, comprendí cómo crear imágenes Docker eficientes, configurar bases de datos de producción, gestionar secretos de manera segura y llevar a cabo la implementación en Kubernetes con EKS.
-
-- [🚀 4. Backend avanzado con gestión de sesiones de usuario y creacion de gRPC APIs [Sessions + gRPC]](#seccion-4)  
-Trabajo con la administración de sesiones de usuario, la creación de API de gRPC, el uso de la Gateway de gRPC para recibir solicitudes de gRPC y HTTP al mismo tiempo, la incorporación de documentación de Swagger como parte del servicio de backend y la actualización parcial de los datos del usariario mediante parametros opcionales y escribir middlewares HTTP de logs estructurado e interceptores gRPC.
-
-- [⏳ 5. Procesamiento asíncrono con backgrounds workers [Asynq + Redis]](#seccion-5)  
-Procesamiento asincrónico en Golang utilizando trabajadores en segundo plano y Redis como cola de mensajes.  Como crear y enviar correos electrónicos a usuarios a través del servidor SMTP de Gmail. Comoo escribir pruebas unitarias para las APIs gRPC implementando mocks.
-
-- [🛡️ 6. Mejorar de la estabilidad y seguridad del servidor [Role-based acces control (RBAC)]](#seccion-6)  
-  Como mejorar la estabilidad y seguridad del servidor.  Uso de cookies para hacer que el token de actualización sea más seguro y cómo apagar correctamente el servidor para proteger los recursos de procesamiento.
 
 ## 🔨 Tecnologias usadas:
 - **Go**: go version go1.21.6 linux/amd64
