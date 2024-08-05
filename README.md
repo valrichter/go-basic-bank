@@ -42,7 +42,7 @@ Se desarolla el servicio web backend basico de un banco. Se aprendio a como dise
 - **JWT**: golang-jwt/jwt v3.2.2+incompatible
 - **Paseto**: o1egl/paseto v1.0.0
 - **GoFakeit**: brianvoe/gofakeit/v6 v6.23.2
-- **Migrate**: golang-migrate v4.16.2
+- **Migrate CLI**: golang-migrate v4.16.2
 - **Asynq**: github.com/hibiken/asynq v0.24.1
 - **pgx**: github.com/jackc/pgx/v5 v5.0.4
 
