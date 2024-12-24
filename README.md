@@ -1,4 +1,6 @@
 # <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="40" /> Proyecto extenso de Backend con Go
+Sistema basico del funcionamiento de un banco echo en Go. Aplicando distintos conceptos de Backend.  
+[Backend Master Class (Golang + Postgres + Kubernetes + gRPC + AWS)](https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/?srsltid=AfmBOopmbz7XkcdwiUsBAn8yw9IEuk3J13_RFbv82ZjJQAOcUF-UYrHs)
 
 ## ⚡ Acciones realizadas durante el proyecto:
 Se desarolla el servicio web backend basico de un banco. Se aprendio a como diseñar, desarrollar e implementar un servicio web backend desde cero, proporcionando APIs para que el frontend realice las siguientes acciones:
