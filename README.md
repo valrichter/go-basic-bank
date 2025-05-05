@@ -1,4 +1,4 @@
-# <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="40" /> Proyecto extenso de Backend con Go
+# <img id="go" src="https://devicon-website.vercel.app/api/go/plain.svg?color=%2300ACD7" width="40" /> Sistema bancario basico hecho en Go
 Sistema basico del funcionamiento de un banco echo en Go. Aplicando distintos conceptos de Backend.  
 [Backend Master Class (Golang + Postgres + Kubernetes + gRPC + AWS)](https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/?srsltid=AfmBOopmbz7XkcdwiUsBAn8yw9IEuk3J13_RFbv82ZjJQAOcUF-UYrHs)
 
